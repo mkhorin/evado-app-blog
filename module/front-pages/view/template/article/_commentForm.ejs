@@ -1,0 +1,40 @@
+<%
+const messages = _controller.getFlash('commentDone');
+if (messages.length) { %>
+    <div class="alert alert-success" data-t=""><%- messages[0] %></div>
+<% } else { %>
+<h4 class="mt30 mb20" data-t="">Add comment</h4>
+<%
+  const keys = _view.ArrayHelper.exclude(['name', 'email', 'content'], Object.keys(model.getErrors()));
+  if (keys.length) {
+%>
+<div class="alert-danger alert ">
+    <% for (const key of keys) { %>
+    <p><b><%- key %></b>: <%- model.getFirstError(key) %></p>
+    <% } %>
+</div>
+<% } %>
+<form action="<%= _controller.getOriginalUrl() %>#comment-form" method="post"
+      class="comment-form form form-horizontal">
+    <%- include(_view.get('_part/field/string'), {
+        attr: 'name',
+        label: 'Your name',
+        value: _controller.user.getTitle('')
+    }) %>
+    <%- include(_view.get('_part/field/string'), {
+        attr: 'email',
+        type: 'email',
+        label: 'Email (not shown)',
+        value: _controller.user.getEmail()
+    }) %>
+    <%- include(_view.get('_part/field/text'), {
+        attr: 'content',
+        label: 'Message'
+    }) %>
+    <div class="form-group">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" class="btn btn-primary" data-t="">Send</button>
+        </div>
+    </div>
+</form>
+<% } %>

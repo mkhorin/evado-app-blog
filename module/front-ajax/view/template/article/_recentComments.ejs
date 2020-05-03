@@ -1,0 +1,22 @@
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-t="">Recent comments</h3>
+    </div>
+    <div class="loadable-content panel-body" data-blog-handler="RecentCommentWidget"
+         data-url="<%- _url('/api/base/data/list') %>">
+
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="item">
+            <div class="recent-comment">
+                <a href="#" data-id="{{_id}}" class="comment">
+                    {{content}}
+                </a>
+            </div>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

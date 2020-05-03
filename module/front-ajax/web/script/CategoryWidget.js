@@ -1,0 +1,46 @@
+'use strict';
+
+Blog.CategoryWidget = class CategoryWidget extends Blog.LoadableContent {
+
+    init () {
+        super.init();
+        this.$container.on('click', '[data-id]', this.onItem.bind(this));
+        this.blog.on('category:change', this.onChangeCategory.bind(this));
+    }
+
+    getPostData () {
+        return {
+            class: 'category'
+        };
+    }
+
+    onChangeCategory (event, {id}) {
+        this.$container.find('.active').removeClass('active');
+        this.$container.find(`[data-id="${id}"]`).addClass('active');
+    }
+
+    onItem (event) {
+        event.preventDefault();
+        const $target = $(event.currentTarget);
+        const id = $target.hasClass('active') ? null : $target.data('id');
+        this.blog.trigger('category:change', {id});
+    }
+
+    render (data) {
+        let items = data && data.items;
+        items = Array.isArray(items) ? items : [];
+        items = items.filter(data => data.publicArticleCounter);
+        items = items.map(data => {
+            data._title = Jam.Helper.escapeTags(data._title);
+            return this.resolveTemplate('item', data);
+        }).join('');
+        return items
+            ? this.resolveTemplate('list', {items})
+            : this.resolveTemplate('error', {text: Jam.i18n.translate('No categories with articles')});
+    }
+
+    renderError () {
+        const text = super.renderError(...arguments);
+        return this.resolveTemplate('error', {text});
+    }
+};

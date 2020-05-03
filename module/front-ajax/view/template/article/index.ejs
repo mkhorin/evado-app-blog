@@ -1,0 +1,29 @@
+<%
+layout(_view.get('_layout/content'));
+block('title', 'Article');
+
+script('front-ajax/script/Blog.js');
+script('front-ajax/script/CategoryWidget.js');
+script('front-ajax/script/RecentCommentWidget.js');
+script('front-ajax/script/Pagination.js');
+script('front-ajax/script/Article.js');
+script('front-ajax/script/Articles.js');
+script('front-ajax/script/module.js');
+%>
+
+<div class="articles-view blog">
+    <div class="row">
+        <div class="col-sm-4 col-sm-push-8">
+
+            <%- include('./_search') %>
+            <%- include('./_categories') %>
+
+        </div>
+        <div class="col-sm-8 col-sm-pull-4">
+
+            <%- include('./_article') %>
+            <%- include('./_articles') %>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-t="">Recent comments</h3>
+    </div>
+    <div class="panel-body">
+        <% if (typeof error !== 'undefined') { %>
+        <div class="alert-danger alert"><%- error %></div>
+        <% } else { %>
+        <% for (const comment of comments) { %>
+        <div class="recent-comment">
+            <a href="<%- _url('article/view', {id: comment.get('article')}) %>#comments" class="comment">
+                <%= comment.get('content') %>
+            </a>
+        </div>
+        <% }} %>
+    </div>
+</div>

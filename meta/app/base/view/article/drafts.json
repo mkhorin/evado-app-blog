@@ -1,0 +1,34 @@
+{
+  "label": "Draft articles",
+  "description": "Draft article list",
+  "filter": {
+    "status": "draft"
+  },
+  "order": {
+    "date": -1
+  },
+  "attrs": [
+    {
+      "name": "date",
+      "orderNumber": 20
+    },
+    {
+      "name": "title",
+      "orderNumber": 30
+    },
+    {
+      "name": "subtitle",
+      "orderNumber": 40
+    },
+    {
+      "name": "categories",
+      "eagerLoading": true,
+      "eagerView": null,
+      "orderNumber": 60
+    },
+    {
+      "name": "mainPhoto",
+      "orderNumber": 80
+    }
+  ]
+}

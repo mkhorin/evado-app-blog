@@ -1,0 +1,26 @@
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-t="">Categories</h3>
+    </div>
+    <div class="loadable-content panel-body" data-blog-handler="CategoryWidget"
+         data-url="<%- _url('/api/base/data/list') %>">
+
+        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
+
+        <template data-id="list">
+            <div class="list-group mb0">{{items}}</div>
+        </template>
+
+        <template data-id="item">
+            <a href="#" data-id="{{_id}}" class="list-group-item">
+                <span class="badge">{{publicArticleCounter}}</span>
+                <span data-t="meta.class.category">{{_title}}</span>
+            </a>
+        </template>
+
+        <template data-id="error">
+            <div class="alert-danger alert">{{text}}</div>
+        </template>
+    </div>
+</div>

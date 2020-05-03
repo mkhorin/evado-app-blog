@@ -1,0 +1,22 @@
+<% layout(_view.get('_layout/content')) %>
+<% block('title', 'Articles') %>
+
+<div class="row">
+
+    <div class="col-sm-4 col-sm-push-8">
+        <%- include('_search') %>
+        <%- _view.placeWidget('categories') %>
+        <%- _view.placeWidget('recentComments') %>
+    </div>
+
+    <div class="col-sm-8 col-sm-pull-4">
+
+        <% if (search) { %>
+        <%- include('_breadcrumb', {text: `Search`})%>
+        <% } %>
+
+        <%- include(_view.get('_part/list'), {
+            itemTemplate: 'article/_listItem'
+        }) %>
+    </div>
+</div>

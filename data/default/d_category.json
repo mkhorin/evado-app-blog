@@ -1,0 +1,56 @@
+[
+  {
+    "_id": {
+      "$oid": "5e1ff5a9ad1786376c441721"
+    },
+    "autoIncrement": 10,
+    "counterToggle": true,
+    "name": "Education",
+    "parent": null,
+    "_creator": {
+      "$oid": "5de0c08481d9ae2468e6fc64"
+    },
+    "_class": "category",
+    "_createdAt": {
+      "$date": "2020-01-16T05:33:29.781Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e1ff5b8ad1786376c441722"
+    },
+    "autoIncrement": 20,
+    "counterToggle": false,
+    "name": "Nature",
+    "parent": null,
+    "_creator": {
+      "$oid": "5de0c08481d9ae2468e6fc64"
+    },
+    "_class": "category",
+    "_createdAt": {
+      "$date": "2020-01-16T05:33:44.293Z"
+    },
+    "_editor": {
+      "$oid": "5de0c08481d9ae2468e6fc64"
+    },
+    "_updatedAt": {
+      "$date": "2020-01-17T07:38:12.330Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e1ff5c2ad1786376c441723"
+    },
+    "autoIncrement": 30,
+    "counterToggle": true,
+    "name": "Science",
+    "parent": null,
+    "_creator": {
+      "$oid": "5de0c08481d9ae2468e6fc64"
+    },
+    "_class": "category",
+    "_createdAt": {
+      "$date": "2020-01-16T05:33:54.953Z"
+    }
+  }
+]

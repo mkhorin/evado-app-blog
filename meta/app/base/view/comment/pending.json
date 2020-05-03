@@ -1,0 +1,24 @@
+{
+  "label": "Pending comments",
+  "description": "Pending comment list",
+  "filter": {
+    "_state": "pending"
+  },
+  "order": {
+    "_id": -1
+  },
+  "attrs": [
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "content",
+      "orderNumber": 40
+    },
+    {
+      "name": "_createdAt",
+      "orderNumber": 60
+    }
+  ]
+}

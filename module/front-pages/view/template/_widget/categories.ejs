@@ -1,0 +1,22 @@
+<!-- _widget/categories -->
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-t="">Categories</h3>
+    </div>
+    <div class="panel-body">
+        <% if (typeof error !== 'undefined') { %>
+        <div class="alert-danger alert"><%- error %></div>
+        <% } else { %>
+        <div class="list-group mb0">
+            <% const url = _url('article/category?id='); %>
+            <% for (const item of categories) { %>
+            <% if (item.counter > 0) { %>
+            <a href="<%- url + item.id %>" class="list-group-item<%- item.active ? ' active' : '' %>">
+                <span class="badge"><%- item.counter %></span>
+                <%= item.title %>
+            </a>
+            <% }} %>
+        </div>
+        <% } %>
+    </div>
+</div>

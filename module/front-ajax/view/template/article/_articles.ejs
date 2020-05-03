@@ -1,0 +1,68 @@
+
+<div class="mb30" data-blog-handler="Articles"
+     data-url="<%- _url('/api/base/data/list') %>">
+
+    <div class="list"></div>
+
+    <template data-id="alert">
+        <div class="alert-warning alert">{{text}}</div>
+    </template>
+
+    <template data-id="article">
+        <div class="list-item" data-id="{{_id}}">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb20"><span class="badge badge-info mr10">{{date}}</span></div>
+                    <h3><a href="#" class="article-list-item">{{title}}</a></h3>
+                    <h4>{{subtitle}}</h4>
+                    <div class="mb10">
+                        <span class="mr10" data-t="">Categories</span>
+                        {{categories}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template data-id="category">
+        <a href="#" class="tag-item" data-id="{{_id}}">{{_title}}</a>
+    </template>
+
+    <template data-id="photoArticle">
+        <div class="list-item" data-id="{{_id}}">
+            <div class="row">
+                <div class="col-md-9 col-md-push-3">
+                    <div class="mb20"><span class="badge badge-info mr10">{{date}}</span></div>
+                    <h3><a href="#" class="article-list-item">{{title}}</a></h3>
+                    <h4>{{subtitle}}</h4>
+                    <div class="mb10">
+                        <span class="mr10" data-t="">Categories</span>
+                        {{categories}}
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-pull-9">
+                    <a href="#" class="article-list-item" title="{{thumbnailText}}">
+                        <img src="<%- _url('/api/base/file/thumbnail') %>?s=small&v=.photo&id={{thumbnail}}"
+                             class="center-block thumbnail img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template data-id="pagination">
+        <nav class="text-center">
+            <ul class="pagination">
+                <li><a href="#" data-action="first"><span>«</span></a></li>
+                <li><a href="#" data-action="prev"><span>‹</span></a></li>
+                {{pages}}
+                <li><a href="#" data-action="next"><span>›</span></a></li>
+                <li><a href="#" data-action="last"><span>»</span></a></li>
+            </ul>
+        </nav>
+    </template>
+
+    <template data-id="page">
+        <li class="{{active}}"><a href="#" data-page="{{page}}">{{text}}</a></li>
+    </template>
+</div>

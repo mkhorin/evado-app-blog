@@ -1,0 +1,77 @@
+{
+  "label": "Main menu",
+  "description": "Main sidebar menu",
+  "nodes": [
+    {
+      "name": "articles",
+      "label": "Articles",
+      "orderNumber": 10
+    },
+    {
+      "parent": "articles",
+      "name": "draftArticles",
+      "label": "Draft articles",
+      "orderNumber": 10,
+      "class": "article",
+      "view": "drafts"
+    },
+    {
+      "parent": "articles",
+      "name": "publicArticles",
+      "label": "Public articles",
+      "orderNumber": 10,
+      "class": "article",
+      "view": "publicList"
+    },
+    {
+      "parent": "articles",
+      "name": "allArticles",
+      "label": "All articles",
+      "orderNumber": 10,
+      "class": "article"
+    },
+    {
+      "parent": "comments",
+      "name": "pendingComments",
+      "label": "Pending comments",
+      "description": "Comments waiting for moderation",
+      "orderNumber": 10,
+      "class": "comment",
+      "view": "pending"
+    },
+    {
+      "name": "comments",
+      "label": "Comments",
+      "orderNumber": 20
+    },
+    {
+      "parent": "comments",
+      "name": "hiddenComments",
+      "label": "Hidden comments",
+      "description": "Hidden comments list",
+      "orderNumber": 20,
+      "class": "comment",
+      "view": "hidden"
+    },
+    {
+      "parent": "comments",
+      "name": "allComments",
+      "label": "All comments",
+      "orderNumber": 30,
+      "class": "comment"
+    },
+    {
+      "name": "categories",
+      "label": "Categories",
+      "orderNumber": 30,
+      "class": "category",
+      "view": "list"
+    },
+    {
+      "name": "photos",
+      "label": "Photos",
+      "orderNumber": 40,
+      "class": "photo"
+    }
+  ]
+}

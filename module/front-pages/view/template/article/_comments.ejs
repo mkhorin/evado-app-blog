@@ -1,0 +1,32 @@
+<%
+const counter = comments ? comments.length : 0;
+%>
+<h4 class="mt30 mb30">
+    <span data-t="">Comments</span>
+    <small>(<%- counter %>)</small>
+</h4>
+
+<% if (counter) { %>
+<a name="comments"></a>
+<div class="comment-list">
+    <% for (const comment of comments) { %>
+    <div class="comment-item clearfix">
+        <div class="comment-icon">
+            <span class="glyphicon glyphicon-comment text-info"></span>
+        </div>
+        <div class="comment-column">
+            <div class="comment-head">
+                <span class="text-warning"><%- _format(comment.get('_createdAt'), 'datetime') %></span>
+                <b class="ml10 text-primary">
+                    <span class="mr5 fa fa-user"></span>
+                    <%= comment.get('name') %>
+                </b>
+            </div>
+            <div class="comment-body"><i><%= comment.get('content') %></i></div>
+        </div>
+    </div>
+    <% } %>
+</div>
+<% } else { %>
+<div class="alert alert-info" data-t="">Not commented yet</div>
+<% } %>

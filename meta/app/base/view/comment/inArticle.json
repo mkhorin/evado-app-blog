@@ -1,0 +1,32 @@
+{
+  "label": "Article comments",
+  "description": "Comments are displayed inside article. Without Article attribute",
+  "options": {
+    "commands": {
+      "link": false,
+      "unlink": false
+    }
+  },
+  "attrs": [
+    {
+      "name": "_state",
+      "orderNumber": 10
+    },
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "email",
+      "orderNumber": 30
+    },
+    {
+      "name": "content",
+      "orderNumber": 40
+    },
+    {
+      "name": "_createdAt",
+      "orderNumber": 60
+    }
+  ]
+}

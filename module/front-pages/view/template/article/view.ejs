@@ -1,0 +1,42 @@
+<%
+layout(_view.get('_layout/content'));
+block('title', 'Article');
+
+const categories = model.rel('categories');
+const photos = model.rel('photos');
+const comments = model.rel('comments');
+%>
+
+<div class="row mb30">
+
+    <div class="col-sm-8">
+
+        <%- include('_breadcrumb', {text: 'Article'}) %>
+
+        <h1 class="mt0"><%= model.getTitle() %></h1>
+
+        <p class="mb20">
+            <span class="badge badge-primary">
+                <%- _format(model.get('date'), 'dateLong') %>
+            </span>
+        </p>
+
+        <h4 class="mb20"><%= model.get('subtitle') %></h4>
+
+        <%- include('./_photos', {photos}) %>
+
+        <div class="mb20"><%- model.get('content') %></div>
+
+        <%- include('./_categories', {categories}) %>
+        <hr>
+        <%- include('./_comments', {comments}) %>
+        <hr>
+        <%- include('./_commentForm', {model: comment}) %>
+    </div>
+
+    <div class="col-sm-4">
+        <%- include('_search') %>
+        <%- _view.placeWidget('categories') %>
+        <%- _view.placeWidget('recentComments') %>
+    </div>
+</div>
