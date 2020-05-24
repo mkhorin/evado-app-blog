@@ -1,13 +1,14 @@
 'use strict';
 
 // set NODE_ENV=development
-// node console/security --action create-users
+// node console/security --action create-users // from configuration
 // node console/security --action create-user --name Name --email Email --password Password
 // node console/security --action create-security
 // node console/security --action change-password --email Email --password Password
 // node console/security --action assign-role --email Email --role Role
-// node console/security --action export [--file default] [--space 2]
-// node console/security --action import [--file default] [--clear true]
+// node console/security --action export [--file default] [--users false] [--space 2]
+// node console/security --action import [--file default] [--users false] [--clear false] [--clearUsers false]
+// node console/security --action clear [--clearUsers false]
 
 const Application = require('../Application');
 const Console = require('evado/console/Console');
@@ -36,6 +37,9 @@ const params = Console.parseProcessArguments();
             break;
         case 'import':
             await instance.importSecurity(params);
+            break;
+        case 'clear':
+            await instance.clearSecurity(params);
             break;
         default:
             instance.log('error', `Unknown action: ${params.action}`);

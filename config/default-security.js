@@ -6,45 +6,45 @@ module.exports = {
 
     metaPermissions: [{
         description: 'Full access to data',
-        type: 'allow',
         roles: [
             'administrator',
             'editor'
         ],
-        actions: ['all'],
-        targets: [{type: 'all'}]
+        type: 'allow',
+        actions: 'all',
+        targets: {type: 'all'}
     }, {
+        roles: 'writer',
         type: "deny",
-        actions: ['read'],
-        roles: ['writer'],
-        targets: [{
+        actions: 'read',
+        targets: {
             type: 'navNode',
             navSection: 'main',
             navNode: ['categories', 'comments']
-        }]
+        }
     }, {
         description: 'Restrict access to non-own objects',
+        roles: 'writer',
         type: 'allow',
-        actions: ['all'],
-        roles: ['writer'],
-        targets: [{
+        actions: 'all',
+        targets: {
             type: 'class',
             class: ['article', 'photo']
-        }],
+        },
         rule: 'Author'
     }, {
+        roles: 'writer',
         type: 'allow',
-        actions: ['read'],
-        roles: ['writer'],
-        targets: [{
+        actions: 'read',
+        targets: {
             type: 'class',
             class: ['category', 'comment']
-        }]
+        }
     }, {
         description: 'Access guest users to read public data',
+        roles: 'guest',
         type: 'allow',
-        roles: ['guest'],
-        actions: ['read'],
+        actions: 'read',
         targets: [{
             type: 'class',
             class: ['category', 'photo']
@@ -59,14 +59,14 @@ module.exports = {
         }]
     }, {
         description: 'Access guest users to comment articles',
+        roles: 'guest',
         type: 'allow',
-        roles: ['guest'],
-        actions: ['create'],
-        targets: [{
+        actions: 'create',
+        targets: {
             type: 'view',
             class: 'comment',
             view: 'publicCreate'
-        }]
+        }
     }],
 
     permissions: {
@@ -97,7 +97,6 @@ module.exports = {
                 'moduleAdmin',
                 'moduleOffice',
                 'moduleStudio',
-                'upload',
                 'utilityTest'
             ]
         },
@@ -107,7 +106,6 @@ module.exports = {
             children: [
                 'guest',
                 'moduleOffice',
-                'upload',
                 'utilityTest'
             ]
         },
@@ -116,8 +114,7 @@ module.exports = {
             description: 'Create and manage your own articles',
             children: [
                 'guest',
-                'moduleOffice',
-                'upload'
+                'moduleOffice'
             ]
         },
         'guest': {
@@ -127,9 +124,9 @@ module.exports = {
     },
 
     assignments: {
-        'Adam': ['administrator'],
-        'Edward': ['editor'],
-        'Walter': ['writer']
+        'Adam': 'administrator',
+        'Edward': 'editor',
+        'Walter': 'writer'
     },
 
     rules: {

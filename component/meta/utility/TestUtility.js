@@ -11,12 +11,12 @@ module.exports = class TestUtility extends Base {
         if (!this.enabled || !this.isUpdateAction()) {
             return false;
         }
-        const meta = this.resolveBaseMeta();
+        const meta = this.parseBaseMeta();
         return meta.class && meta.class.name === this.targetClass;
     }
 
     async execute () {
-        const meta = this.resolveBaseMeta();
+        const meta = this.parseBaseMeta();
         const query = this.findModel(this.postParams.model, meta.view);
         const model = query ? await query.one() : null;
         const security = this.createMetaSecurity();

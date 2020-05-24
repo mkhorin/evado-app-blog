@@ -20,7 +20,7 @@ Blog.Articles = class Articles extends Blog.Element {
 
     load () {
         this.blog.toggleLoader(true);
-        this.blog.ajaxQueue.abort(this.deferred);
+        this.blog.ajaxQueue.remove(this.deferred);
         this.deferred = this.blog.ajaxQueue.post(this.dataMap.url, this.getPostData())
             .done(this.onDone.bind(this))
             .fail(this.onFail.bind(this));

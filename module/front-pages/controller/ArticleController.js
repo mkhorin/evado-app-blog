@@ -51,7 +51,7 @@ module.exports = class ArticleController extends Base {
             throw new MetaError('Public article view not found');
         }
         const id = this.getQueryParam('id');
-        const model = await articleView.findById(id, this.getSpawnConfig()).withFormData().one();
+        const model = await articleView.findById(id, this.getSpawnConfig()).withReadData().one();
         if (!model) {
             throw new NotFound('Article not found');
         }

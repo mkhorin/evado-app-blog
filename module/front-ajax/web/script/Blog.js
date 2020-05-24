@@ -131,15 +131,11 @@ Blog.AjaxQueue = class AjaxQueue {
         return deferred;
     }
 
-    abort (deferred) {
+    remove (deferred) {
         const index = this.getTaskIndex(deferred);
-        if (index === undefined) {
-            return false;
+        if (index !== undefined) {
+            this._tasks.splice(index, 1);
         }
-        if (index === 0) {
-            return this.next();
-        }
-        this._tasks.splice(index, 1);
     }
 
     getTaskIndex (deferred) {
