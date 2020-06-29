@@ -5,8 +5,13 @@
 
 Jam.Utility.Test = class TestUtility extends Jam.Utility {
 
-    onItemClick (event) {
-        event.preventDefault();
+    onItem (event) {
+        this.checkModelChanged()
+            ? event.preventDefault()
+            : super.onItem(event);
+    }
+
+    execute () {
         const data = this.getRequestData({
             test: 'Test data'
         });
@@ -18,13 +23,11 @@ Jam.Utility.Test = class TestUtility extends Jam.Utility {
 
     onDone (data) {
         Jam.toggleGlobalLoader(false);
-        const modal = this.getModal();
-        modal.reload().done(()=> {
-            modal.findInstanceByClass(Jam.Model).notice.success(data);
-        });
+        this.modal.reload().done(()=> this.getModel().notice.success(data));
     }
 
     onFail (data) {
         Jam.toggleGlobalLoader(false);
+        this.parseModelError(data);
     }
 };

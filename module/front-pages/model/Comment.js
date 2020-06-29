@@ -24,7 +24,7 @@ module.exports = class Comment extends Base {
         if (!await this.validate()) {
             return false;
         }
-        const model = view.spawnModel({user});
+        const model = view.createModel({user});
         await model.setDefaultValues();
         model.setFromModel('name', this);
         model.setFromModel('email', this);
