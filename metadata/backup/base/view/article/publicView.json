@@ -1,0 +1,40 @@
+{
+  "label": "Published article",
+  "description": "Frontend published article",
+  "filter": {
+    "status": "published"
+  },
+  "attrs": [
+    {
+      "name": "date",
+      "orderNumber": 20
+    },
+    {
+      "name": "title",
+      "orderNumber": 30
+    },
+    {
+      "name": "subtitle",
+      "orderNumber": 40
+    },
+    {
+      "name": "content",
+      "orderNumber": 50
+    },
+    {
+      "name": "categories",
+      "orderNumber": 60
+    },
+    {
+      "name": "photos",
+      "eagerLoading": true,
+      "orderNumber": 80
+    },
+    {
+      "name": "comments",
+      "eagerLoading": true,
+      "eagerView": "publicList",
+      "orderNumber": 100
+    }
+  ]
+}

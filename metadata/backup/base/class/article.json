@@ -1,0 +1,303 @@
+{
+  "abstract": false,
+  "label": "Article",
+  "header": ".title",
+  "modelConfig": {
+    "Class": "component/meta/model/SomeModel",
+    "somePropery": "someValue"
+  },
+  "description": "Main content",
+  "attrs": [
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "string",
+      "viewType": "radioList",
+      "description": "Attribute determines the state of article",
+      "commonSearchable": false,
+      "defaultValue": "draft",
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 10,
+      "sortable": true,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "enums": [
+        {
+          "items": [
+            {
+              "value": "draft",
+              "text": "Draft",
+              "hint": "Writing article mode"
+            },
+            {
+              "value": "published",
+              "text": "Published",
+              "hint": "Published article"
+            },
+            {
+              "value": "archived",
+              "text": "Archived",
+              "hint": "Article removed from publication"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "date",
+      "label": "Date",
+      "type": "date",
+      "commonSearchable": true,
+      "defaultValue": [
+        "$now"
+      ],
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "indexing": -1,
+      "multiple": false,
+      "orderNumber": 20,
+      "sortable": true,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "string",
+      "commonSearchable": true,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 30,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": true,
+      "trim": true,
+      "unique": true
+    },
+    {
+      "name": "subtitle",
+      "label": "Subtitle",
+      "type": "string",
+      "commonSearchable": true,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 40,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "content",
+      "label": "Content",
+      "type": "text",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "options": {
+        "rows": 8
+      },
+      "orderNumber": 50,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "categories",
+      "label": "Categories",
+      "type": "ref",
+      "description": "Categories with article",
+      "commonSearchable": false,
+      "eagerLoading": true,
+      "escape": true,
+      "group": "categories",
+      "hidden": false,
+      "history": false,
+      "multiple": true,
+      "onDelete": "null",
+      "options": {
+        "commands": {
+          "delete": false
+        },
+        "css": "no-label"
+      },
+      "orderNumber": 60,
+      "sortable": false,
+      "sortableRelation": false,
+      "refClass": "category",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ]
+    },
+    {
+      "name": "mainPhoto",
+      "label": "Main photo",
+      "type": "ref",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "group": "photos",
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "onDelete": "null",
+      "orderNumber": 70,
+      "sortable": false,
+      "sortableRelation": false,
+      "refClass": "photo",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ]
+    },
+    {
+      "name": "photos",
+      "label": "Photos",
+      "type": "ref",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "group": "photos",
+      "hidden": false,
+      "history": false,
+      "multiple": true,
+      "onDelete": "null",
+      "orderNumber": 80,
+      "sortable": false,
+      "sortableRelation": false,
+      "refClass": "photo",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ]
+    },
+    {
+      "name": "comments",
+      "label": "Comments",
+      "type": "backref",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": true,
+      "group": "comments",
+      "hidden": false,
+      "history": false,
+      "listView": "inArticle",
+      "multiple": true,
+      "options": {
+        "css": "no-label",
+        "relation": {
+          "showTop": true
+        }
+      },
+      "orderNumber": 100,
+      "sortable": false,
+      "sortableRelation": false,
+      "refAttr": "article",
+      "refClass": "comment",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "name": "tabs",
+      "label": "Tabs",
+      "orderNumber": 1000,
+      "type": "tabs"
+    },
+    {
+      "active": true,
+      "hint": "Categories containing article",
+      "name": "categories",
+      "label": "Categories",
+      "orderNumber": 1010,
+      "parent": "tabs"
+    },
+    {
+      "name": "photos",
+      "label": "Photos",
+      "orderNumber": 1020,
+      "parent": "tabs"
+    },
+    {
+      "name": "comments",
+      "label": "Comments",
+      "orderNumber": 1030,
+      "parent": "tabs"
+    }
+  ],
+  "rules": [
+    {
+      "type": "string",
+      "orderNumber": 10,
+      "attrs": [
+        "title",
+        "subtitle"
+      ],
+      "max": 256
+    }
+  ]
+}

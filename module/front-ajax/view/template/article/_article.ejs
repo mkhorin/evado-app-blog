@@ -56,7 +56,7 @@
 
     <template data-id="photo">
         <div class="item {{active}}">
-            <img src="<%- _url('/api/base/file/thumbnail') %>?s=large&v=.photo&id={{_id}}" alt="{{description}}">
+            <img src="<%- _url('/api/base/file/thumbnail') %>?s=large&c=photo&id={{_id}}" alt="{{description}}">
             <div class="carousel-caption">{{description}}</div>
         </div>
     </template>

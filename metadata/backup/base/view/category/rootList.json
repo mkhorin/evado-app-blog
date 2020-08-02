@@ -1,0 +1,17 @@
+{
+  "label": "Root list",
+  "description": "Categories without parent",
+  "filter": {
+    "parent": null
+  },
+  "attrs": [
+    {
+      "name": "name",
+      "orderNumber": 10
+    },
+    {
+      "name": "counterToggle",
+      "orderNumber": 20
+    }
+  ]
+}

@@ -11,6 +11,7 @@ module.exports = {
         name: 'Test utility',
         hint: 'Test utility hint',
         enabled: true,
+        actions: ['update'],
         frontClass: 'Test',
         targetClass: 'article'
     }

@@ -2,7 +2,7 @@
 
 Blog application with simple and familiar entities.
 
-- [Evado Platform](https://github.com/mkhorin/evado)
+- [Evado Framework](https://github.com/mkhorin/evado)
 - [Step-by-step tutorial](http://nervebit.com/evado/blog)
 
 ## Docker installation

@@ -1,0 +1,301 @@
+{
+  "abstract": false,
+  "label": "Comment",
+  "description": "User comment about article",
+  "attrs": [
+    {
+      "name": "_state",
+      "label": "State",
+      "type": "string",
+      "viewType": "state",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 10,
+      "sortable": true,
+      "sortableRelation": false,
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "string",
+      "commonSearchable": true,
+      "eagerLoading": false,
+      "escape": true,
+      "group": "column1",
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "options": {
+        "cssLabel": "col-md-4",
+        "cssValue": "col-md-8"
+      },
+      "orderNumber": 20,
+      "sortable": true,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "rules": [
+        {
+          "type": "string",
+          "orderNumber": 10,
+          "max": 24
+        }
+      ]
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "string",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "group": "column2",
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 30,
+      "sortable": true,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "rules": [
+        {
+          "type": "email",
+          "orderNumber": 10
+        }
+      ]
+    },
+    {
+      "name": "content",
+      "label": "Content",
+      "type": "text",
+      "commonSearchable": true,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 40,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "rules": [
+        {
+          "type": "string",
+          "orderNumber": 10,
+          "max": 256
+        }
+      ]
+    },
+    {
+      "name": "article",
+      "label": "Article",
+      "type": "ref",
+      "viewType": "relationSelect",
+      "description": "Reference to commented article",
+      "commonSearchable": false,
+      "eagerLoading": true,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "onDelete": "null",
+      "orderNumber": 50,
+      "sortable": false,
+      "sortableRelation": false,
+      "refClass": "article",
+      "readOnly": false,
+      "required": true,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ]
+    },
+    {
+      "name": "_createdAt",
+      "label": "Created at",
+      "type": "date",
+      "viewType": "localDatetime",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "group": "creation",
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 60,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "_creator",
+      "label": "Creator",
+      "type": "user",
+      "commonSearchable": false,
+      "eagerLoading": true,
+      "escape": false,
+      "group": "creation",
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 70,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": true,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    }
+  ],
+  "groups": [
+    {
+      "name": "columns",
+      "label": "Columns",
+      "orderNumber": 10,
+      "type": "columns"
+    },
+    {
+      "name": "column1",
+      "label": "Column1",
+      "orderNumber": 1010,
+      "parent": "columns"
+    },
+    {
+      "name": "column2",
+      "label": "Column2",
+      "orderNumber": 1020,
+      "parent": "columns"
+    },
+    {
+      "hint": "Additional сreation Information",
+      "name": "creation",
+      "label": "Creation info",
+      "orderNumber": 1030
+    }
+  ],
+  "states": [
+    {
+      "name": "pending",
+      "label": "Pending",
+      "defaults": true,
+      "description": "Comment pending moderation",
+      "readOnly": false
+    },
+    {
+      "name": "published",
+      "label": "Published",
+      "defaults": false,
+      "description": "Comment posted in article",
+      "readOnly": true
+    },
+    {
+      "name": "hidden",
+      "label": "Hidden",
+      "defaults": false,
+      "description": "Comment not published",
+      "readOnly": true
+    }
+  ],
+  "transitions": [
+    {
+      "name": "publish",
+      "label": "Publish",
+      "hint": "Make comment visible to visitors",
+      "nullStartState": false,
+      "startStates": [
+        "pending",
+        "hidden"
+      ],
+      "finalState": "published",
+      "orderNumber": 10
+    },
+    {
+      "name": "hide",
+      "label": "Hide",
+      "hint": "Hide unwanted comment from visitors",
+      "nullStartState": false,
+      "startStates": [
+        "pending",
+        "published"
+      ],
+      "finalState": "hidden",
+      "options": {
+        "confirmation": "Visitors will not see a hidden comment. Hide?"
+      },
+      "orderNumber": 20
+    },
+    {
+      "name": "moderate",
+      "label": "Moderate",
+      "hint": "Send comment on moderation",
+      "nullStartState": true,
+      "startStates": [
+        "hidden"
+      ],
+      "finalState": "pending",
+      "orderNumber": 30
+    },
+    {
+      "name": "hideTest",
+      "label": "Hide test",
+      "description": "Transition is available if comment content is \"test\"",
+      "hint": "Comment content is \"test\"",
+      "nullStartState": false,
+      "startStates": [
+        "pending"
+      ],
+      "finalState": "hidden",
+      "condition": {
+        "content": "test"
+      },
+      "orderNumber": 40
+    },
+    {
+      "name": "hideExcess",
+      "label": "Hide excess",
+      "description": "Transition is possible if number of article comments  exceeds 3",
+      "hint": "Number of article comments exceeds 3",
+      "nullStartState": false,
+      "startStates": [
+        "pending",
+        "published"
+      ],
+      "finalState": "hidden",
+      "condition": {
+        "Class": "component/meta/condition/ExcessComment",
+        "counter": 3
+      },
+      "orderNumber": 50
+    }
+  ]
+}

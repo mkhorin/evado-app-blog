@@ -89,10 +89,8 @@
       "eagerLoading": false,
       "escape": false,
       "expression": [
-        "$query",
-        "count",
+        "$count",
         "publicList.article",
-        null,
         {
           "categories": ".$key"
         }

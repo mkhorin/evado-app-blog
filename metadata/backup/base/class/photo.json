@@ -1,0 +1,95 @@
+{
+  "abstract": false,
+  "label": "Photo",
+  "description": "Uploaded image file",
+  "order": {
+    "orderNumber": -1
+  },
+  "options": {
+    "thumbnail": "tiny"
+  },
+  "attrs": [
+    {
+      "name": "file",
+      "label": "File",
+      "type": "file",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 10,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "string",
+      "commonSearchable": true,
+      "eagerLoading": false,
+      "escape": true,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 30,
+      "sortable": false,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
+    },
+    {
+      "name": "orderNumber",
+      "label": "Order number",
+      "type": "integer",
+      "commonSearchable": false,
+      "eagerLoading": false,
+      "escape": false,
+      "hidden": false,
+      "history": false,
+      "multiple": false,
+      "orderNumber": 40,
+      "sortable": true,
+      "sortableRelation": false,
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false,
+      "behaviors": [
+        {
+          "type": "sortOrder",
+          "orderNumber": 10,
+          "start": 10,
+          "step": 10
+        }
+      ],
+      "rules": [
+        {
+          "type": "custom",
+          "orderNumber": 10,
+          "config": {
+            "Class": "component/meta/validator/TestValidator"
+          }
+        }
+      ]
+    }
+  ],
+  "behaviors": [
+    {
+      "type": "file",
+      "orderNumber": 10,
+      "imageOnly": true,
+      "maxSize": 2000000
+    }
+  ]
+}

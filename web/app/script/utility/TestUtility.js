@@ -16,7 +16,7 @@ Jam.Utility.Test = class TestUtility extends Jam.Utility {
             test: 'Test data'
         });
         Jam.toggleGlobalLoader(true);
-        Jam.Helper.post(this.$item, this.getUrl(), data)
+        Jam.Helper.post(this.getUrl(), data)
             .done(this.onDone.bind(this))
             .fail(this.onFail.bind(this));
     }

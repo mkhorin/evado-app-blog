@@ -15,7 +15,7 @@ module.exports = class ArticleController extends Base {
     async actionIndex () {
         const articleView = await this.getMetaView('publicList', 'article');
         if (!articleView) {
-            throw new MetaError('Public article list not found');
+            throw new InvalidMetadata('Public article list not found');
         }
         const query = articleView.find(this.module).withListData().withTitle();
         const search = this.getQueryParam('text');
@@ -29,11 +29,11 @@ module.exports = class ArticleController extends Base {
     async actionCategory () {
         const articleView = await this.getMetaView('publicList', 'article');
         if (!articleView) {
-            throw new MetaError('Public article list not found');
+            throw new InvalidMetadata('Public article list not found');
         }
         const categoryView = await this.getMetaView(null, 'category');
         if (!categoryView) {
-            throw new MetaError('Category class not found');
+            throw new InvalidMetadata('Category class not found');
         }
         const category = await categoryView.findById(this.getQueryParam('id')).withTitle().one();
         if (!category) {
@@ -48,7 +48,7 @@ module.exports = class ArticleController extends Base {
     async actionView () {
         const articleView = await this.getMetaView('publicView', 'article');
         if (!articleView) {
-            throw new MetaError('Public article view not found');
+            throw new InvalidMetadata('Public article view not found');
         }
         const id = this.getQueryParam('id');
         const model = await articleView.findById(id, this.getSpawnConfig()).withReadData().one();
@@ -61,7 +61,7 @@ module.exports = class ArticleController extends Base {
         }
         const commentView = await this.getMetaView(null, 'comment');
         if (!commentView) {
-            throw new MetaError('Comment class not found');
+            throw new InvalidMetadata('Comment class not found');
         }
         comment.load(this.getPostParams());
         if (!await comment.save(commentView, model, this.user)) {
@@ -110,8 +110,8 @@ module.exports = class ArticleController extends Base {
 };
 module.exports.init(module);
 
-const NotFound = require('areto/error/NotFoundHttpException');
-const MetaError = require('evado/component/meta/error/MetaErrorHttpException');
+const NotFound = require('areto/error/http/NotFound');
+const InvalidMetadata = require('evado/component/meta/error/InvalidMetadata');
 const ActiveDataProvider = require('areto/data/ActiveDataProvider');
 const MetaCommonSearch = require('evado/component/meta/MetaCommonSearch');
 const Comment = require('../model/Comment');

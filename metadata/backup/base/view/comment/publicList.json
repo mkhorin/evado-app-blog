@@ -1,0 +1,28 @@
+{
+  "label": "Published comments",
+  "description": "Public comment list",
+  "filter": {
+    "_state": "published"
+  },
+  "order": {
+    "_id": 1
+  },
+  "attrs": [
+    {
+      "name": "_state",
+      "orderNumber": 10
+    },
+    {
+      "name": "name",
+      "orderNumber": 20
+    },
+    {
+      "name": "content",
+      "orderNumber": 40
+    },
+    {
+      "name": "_createdAt",
+      "orderNumber": 60
+    }
+  ]
+}

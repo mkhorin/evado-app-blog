@@ -150,30 +150,32 @@ Blog.AjaxQueue = class AjaxQueue {
         if (this._xhr || !this._tasks.length) {
             return false;
         }
-        const {deferred, args} = this._tasks[0];
-        const data = {
+        const {deferred, args} = this._tasks.splice(0, 1)[0];
+        const csrf = Jam.Helper.getCsrfToken();
+        const data = {csrf, ...args[1]};
+        const params = {
             method: 'post',
             contentType: 'application/json',
             url: args[0],
-            data: JSON.stringify(args[1])
+            data: JSON.stringify(data)
         };
-        this._xhr = $.ajax(data)
-            .done(data => {
-                deferred.resolve(data)
-            })
-            .fail(data => {
-                deferred.reject(data)
-            })
-            .always(this.next.bind(this));
+        this._xhr = $.ajax(params)
+            .always(() => this._xhr = null)
+            .done(data => deferred.resolve(data))
+            .fail(data => deferred.reject(data));
+        deferred.done(this.next.bind(this));
+        deferred.fail(this.next.bind(this));
     }
 
     next () {
+        this.execute();
+    }
+
+    abort () {
         if (this._xhr) {
             this._xhr.abort();
             this._xhr = null;
         }
-        this._tasks.splice(0, 1);
-        this.execute();
     }
 };
 
