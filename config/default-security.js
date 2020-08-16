@@ -31,7 +31,7 @@ module.exports = {
             type: 'class',
             class: ['article', 'photo']
         },
-        rule: 'Creator'
+        rule: 'creator'
     }, {
         roles: 'writer',
         type: 'allow',
@@ -84,6 +84,9 @@ module.exports = {
             label: 'Studio module',
             description: 'Access to Studio module'
         },
+        'moduleApiBaseUpload': {
+            label: 'Upload files'
+        },
         'utilityTest': {
             label: 'Test utility'
         }
@@ -97,6 +100,7 @@ module.exports = {
                 'moduleAdmin',
                 'moduleOffice',
                 'moduleStudio',
+                'moduleApiBaseUpload',
                 'utilityTest'
             ]
         },
@@ -106,6 +110,7 @@ module.exports = {
             children: [
                 'guest',
                 'moduleOffice',
+                'moduleApiBaseUpload',
                 'utilityTest'
             ]
         },
@@ -114,7 +119,8 @@ module.exports = {
             description: 'Create and manage your own articles',
             children: [
                 'guest',
-                'moduleOffice'
+                'moduleOffice',
+                'moduleApiBaseUpload'
             ]
         },
         'guest': {
@@ -123,16 +129,20 @@ module.exports = {
         }
     },
 
+    rules: {
+        'creator': {
+            label: 'Creator',
+            description: 'Check user is object creator',
+            config: {
+                Class: 'evado/component/meta/rbac/rule/UserRule',
+                attr: '_creator'
+            }
+        }
+    },
+
     assignments: {
         'Adam': 'administrator',
         'Edward': 'editor',
         'Walter': 'writer'
-    },
-
-    rules: {
-        'Creator': {
-            description: 'Check user is object creator',
-            config: '{"Class": "evado/component/meta/rbac/rule/UserRule", "attr": "_creator"}'
-        }
     }
 };
