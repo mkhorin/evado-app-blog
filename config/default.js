@@ -84,6 +84,7 @@ module.exports = {
     utilities: require('./default-utilities'),
     params: {        
         'enablePasswordReset': false,
-        'enableSignUp': false
+        'enableSignUp': false,
+        'enableSignUpVerification': false
     }
 };

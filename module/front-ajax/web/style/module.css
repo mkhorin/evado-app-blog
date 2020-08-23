@@ -196,3 +196,10 @@
 .article-view [data-blog-handler="Article"] {
     display: block;
 }
+.signboard {
+    padding: 20px;
+    margin-bottom: 30px;
+    color: #884;
+    background: #ffe;
+    border-bottom: 2px solid #cca;
+}
