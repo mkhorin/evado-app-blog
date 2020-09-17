@@ -18,9 +18,9 @@ module.exports = {
         type: "deny",
         actions: 'read',
         targets: {
-            type: 'navNode',
-            navSection: 'main',
-            navNode: ['categories', 'comments']
+            type: 'node',
+            section: 'main',
+            node: ['categories', 'comments']
         }
     }, {
         description: 'Restrict access to non-own objects',

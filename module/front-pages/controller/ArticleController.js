@@ -17,7 +17,7 @@ module.exports = class ArticleController extends Base {
         if (!articleView) {
             throw new InvalidMetadata('Public article list not found');
         }
-        const query = articleView.find(this.module).withListData().withTitle();
+        const query = articleView.createQuery(this.getSpawnConfig()).withListData().withTitle();
         const search = this.getQueryParam('text');
         if (search) {
             this.spawn(MetaCommonSearch, {controller: this}).resolve(query, search);
@@ -35,11 +35,13 @@ module.exports = class ArticleController extends Base {
         if (!categoryView) {
             throw new InvalidMetadata('Category class not found');
         }
-        const category = await categoryView.findById(this.getQueryParam('id')).withTitle().one();
+        const id = this.getQueryParam('id');
+        const categoryQuery = categoryView.createQuery(this.getSpawnConfig()).byId(id);
+        const category = await categoryQuery.withTitle().one();
         if (!category) {
             throw new NotFound('Category not found');
         }
-        const query = articleView.find(this.module).withListData().withTitle();
+        const query = articleView.createQuery(this.getSpawnConfig()).withListData().withTitle();
         query.and({categories: category.getId()});
         const provider = await this.prepareProvider({query});
         await this.render('category', {category, provider});
@@ -51,7 +53,8 @@ module.exports = class ArticleController extends Base {
             throw new InvalidMetadata('Public article view not found');
         }
         const id = this.getQueryParam('id');
-        const model = await articleView.findById(id, this.getSpawnConfig()).withReadData().one();
+        const query = articleView.createQuery(this.getSpawnConfig()).byId(id);
+        const model = await query.withReadData().one();
         if (!model) {
             throw new NotFound('Article not found');
         }

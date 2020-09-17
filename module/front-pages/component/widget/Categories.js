@@ -11,18 +11,23 @@ module.exports = class Categories extends Base {
         if (!category) {
             return this.render({error: `Meta class not found: ${className}`});
         }
-        const id = this.active ? this.active.getId() : null;
-        const models = await category.find(this.module).withCalc().withTitle().all();
+        const activeId = this.active ? this.active.getId() : null;
+        const query = category.createQuery({module: this.module}).withCalc().withTitle();
+        const models = await query.all();
         const categories = [];
         for (const model of models) {
-            categories.push({
-                'id': model.getId(),
-                'title': model.getTitle(),
-                'counter': model.get('publicArticleCounter'),
-                'active': CommonHelper.isEqual(id, model.getId())
-            });
+            categories.push(this.getCategoryData(model, activeId));
         }
         return this.render({categories});
+    }
+
+    getCategoryData (model, activeId) {
+        return {
+            id: model.getId(),
+            title: model.getTitle(),
+            counter: model.get('publicArticleCounter'),
+            active: CommonHelper.isEqual(model.getId(), activeId)
+        };
     }
 
     render (data) {

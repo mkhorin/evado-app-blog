@@ -14,7 +14,7 @@ module.exports = class PhotoController extends Base {
             return this.sendStatus(501, 'Meta class not found: photo');
         }
         const id = this.getQueryParam('id');
-        const model = await metaClass.findById(id, {module: this.module}).one();
+        const model = await metaClass.createQuery({module: this.module}).byId(id).one();
         if (!model) {
             return this.sendStatus(501, 'Model not found');
         }

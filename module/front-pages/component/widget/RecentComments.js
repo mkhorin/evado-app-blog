@@ -12,7 +12,8 @@ module.exports = class RecentComments extends Base {
         if (!view) {
             return this.render({error: `Meta view not found: ${viewName}.${className}`});
         }
-        const comments = await view.find(this.module).limit(3).all();
+        const query = view.createQuery({module: this.module});
+        const comments = await query.limit(3).all();
         return this.render({comments: comments.reverse()});
     }
 
