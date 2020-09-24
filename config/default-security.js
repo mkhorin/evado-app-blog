@@ -12,7 +12,9 @@ module.exports = {
         ],
         type: 'allow',
         actions: 'all',
-        targets: {type: 'all'}
+        targets: {
+            type: 'all'
+        }
     }, {
         roles: 'writer',
         type: "deny",

@@ -1,9 +1,7 @@
-# Evado Blog App
+# Evado Blog
 
-Blog application with simple and familiar entities.
-
-- [Evado Declarative Framework](https://github.com/mkhorin/evado)
-- [Step-by-step tutorial](http://nervebit.com/evado/blog)
+Build on [Evado Declarative Framework](https://github.com/mkhorin/evado) 
+this application implements multi-user blog with simple and familiar entities.
 
 ## Docker installation
 
@@ -52,4 +50,4 @@ Password: 123456
 ```
 
 ## Tutorial
-- [Build a Blog Without Coding](http://nervebit.com/evado/blog)
+- [Build an App Without Coding](http://nervebit.com/evado/blog)
