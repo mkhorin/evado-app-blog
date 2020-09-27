@@ -1,7 +1,7 @@
 # Evado Blog
 
-Build on [Evado Declarative Framework](https://github.com/mkhorin/evado) 
-this application implements multi-user blog with simple and familiar entities.
+A multi-user blog with simple and familiar entities 
+build on [Evado Declarative Framework](https://github.com/mkhorin/evado) .
 
 ## Docker installation
 
