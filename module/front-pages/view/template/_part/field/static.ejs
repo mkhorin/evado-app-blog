@@ -6,10 +6,10 @@ const params = {
 %>
 <%- include('_params', {params}) %>
 
-<div class="form-group">
-    <label class="col-sm-2 control-label" data-t=""><%- params.label %></label>
-    <div class="col-sm-10">
-        <div class="form-control-static">
+<div class="form-group row">
+    <label class="col-md-2 col-form-label" data-t=""><%- params.label %></label>
+    <div class="col-md-10">
+        <div class="form-control-plaintext">
             <% if (params.escaping) { %>
             <%= _format(params.value) %>
             <% } else { %>

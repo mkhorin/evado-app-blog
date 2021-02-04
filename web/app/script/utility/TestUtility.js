@@ -6,7 +6,7 @@
 Jam.Utility.Test = class TestUtility extends Jam.Utility {
 
     onItem (event) {
-        this.checkModelChanged()
+        this.checkModelChanges()
             ? event.preventDefault()
             : super.onItem(event);
     }
@@ -15,19 +15,21 @@ Jam.Utility.Test = class TestUtility extends Jam.Utility {
         const data = this.getRequestData({
             test: 'Test data'
         });
-        Jam.toggleGlobalLoader(true);
-        Jam.Helper.post(this.getUrl(), data)
+        Jam.toggleLoader(true);
+        return Jam.post(this.getUrl(), data)
             .done(this.onDone.bind(this))
             .fail(this.onFail.bind(this));
     }
 
     onDone (data) {
-        Jam.toggleGlobalLoader(false);
-        this.modal.reload().done(()=> this.getModel().notice.success(data));
+        Jam.toggleLoader(false);
+        this.frame.reload().done(() => {
+            this.getModel().alert.success(data);
+        });
     }
 
     onFail (data) {
-        Jam.toggleGlobalLoader(false);
+        Jam.toggleLoader(false);
         this.parseModelError(data);
     }
 };

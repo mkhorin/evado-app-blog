@@ -1,16 +1,15 @@
 <!-- _part/field/checkbox -->
-
-<% const params = {}; %>
+<%
+const params = {};
+%>
 <%- include('_params', {params}) %>
 
-<div class="form-group">
-    <div class="col-sm-10 col-sm-offset-2">
-        <div class="checkbox">
-            <label>
-                <input id="<%- params.id %>" name="<%- params.name %>" type="hidden">
-                <input type="checkbox" class="checkbox-control" <%- params.value ? 'checked' : '' %>>
-                <span data-t=""><%- params.label %></span>
-            </label>
+<div class="form-group row">
+    <div class="col-md-10 offset-md-2">
+        <input name="<%- params.name %>" class="form-value" value="<%- params.value %>" type="hidden">
+        <div class="form-check">
+            <input class="form-check-input"<%- params.value ? ' checked' : '' %> type="checkbox">
+            <label class="form-check-label" data-t=""><%- params.label %></label>
         </div>
     </div>
 </div>

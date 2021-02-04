@@ -6,25 +6,25 @@
 <% if (photo) { %>
 <div class="row">
     <div class="col-md-8">
-        <a href="<%- url %>" title="<%= photo.get('description') %>">
+        <a class="d-block mb-3" href="<%- url %>" title="<%= photo.get('description') %>">
             <img src="<%- _url('photo/thumbnail?s=medium&id=' + photo.getId()) %>"
-                 class="center-block thumbnail img-responsive" alt="">
+                 class="img-thumbnail img-fluid" alt="">
         </a>
     </div>
 </div>
 <% } %>
 <div class="row">
     <div class="col-md-12">
-        <div class="mb20">
-            <span class="badge badge-info mr10"><%- _format(model.get('date'), 'dateLong') %></span>
+        <div class="mb-3">
+            <span class="badge badge-info mr-1"><%- _format(model.get('date'), 'dateLong') %></span>
         </div>
         <h3><a href="<%- url %>"><%= model.getTitle() %></a></h3>
         <% if (subtitle) { %>
-        <h4><%= subtitle %></h4>
+        <h5><%= subtitle %></h5>
         <% } %>
-        <% if (categories && categories.length) { %>
-        <div class="mb10">
-            <span class="mr10" data-t="">Categories</span>
+        <% if (categories?.length) { %>
+        <div class="my-3">
+            <span class="mr-1" data-t="">Categories</span>
             <% for (const category of categories) { %>
             <a href="<%- _url('category', {id: category.getId()}) %>" class="tag-item">
                 <%= category.getTitle('name') %>

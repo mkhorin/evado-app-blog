@@ -77,12 +77,12 @@ Blog.Articles = class Articles extends Blog.Element {
     }
 
     onDone (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.map(this.prepareItem, this);
-        this.pagination.setTotal(data && data.totalSize);
+        this.pagination.setTotal(data?.totalSize);
         this.list.innerHTML = this.renderItems(items) + this.pagination.render();
-        Jam.i18n.translateContainer($(this.list));
+        Jam.t($(this.list));
         this.completeLoad();
     }
 
@@ -107,7 +107,7 @@ Blog.Articles = class Articles extends Blog.Element {
             return items.map(this.resolveItemTemplate, this).join('');
         }
         return this.resolveTemplate('alert', {
-            text: Jam.i18n.translate('No articles found')
+            text: Jam.t('No articles found')
         });
     }
 
@@ -125,8 +125,8 @@ Blog.Articles = class Articles extends Blog.Element {
     }
 
     resolveItemCategory (data) {
-        data._title = Jam.Helper.escapeTags(data._title);
-        data.name = Jam.Helper.escapeTags(data.name) || data._title;
+        data._title = Jam.escape(data._title);
+        data.name = Jam.escape(data.name) || data._title;
         return this.resolveTemplate('category', data);
     }
 };

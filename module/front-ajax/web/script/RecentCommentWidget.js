@@ -1,6 +1,6 @@
 'use strict';
 
-Blog.RecentCommentWidget = class RecentCommentWidget extends Blog.LoadableContent {
+Blog.RecentCommentWidget = class RecentCommentWidget extends Blog.Loadable {
 
     getPostData () {
         return {
@@ -11,7 +11,7 @@ Blog.RecentCommentWidget = class RecentCommentWidget extends Blog.LoadableConten
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.reverse();
         return items.map(data => this.resolveTemplate('item', data)).join('');

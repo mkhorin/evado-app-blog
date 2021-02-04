@@ -4,14 +4,14 @@ const Base = require('areto/view/Widget');
 
 module.exports = class Categories extends Base {
 
-    async run () {
+    async execute () {
         const meta = this.module.getBaseMeta();
         const className = 'category';
         const category = meta.getClass(className);
         if (!category) {
             return this.render({error: `Meta class not found: ${className}`});
         }
-        const activeId = this.active ? this.active.getId() : null;
+        const activeId = this.active?.getId();
         const query = category.createQuery({module: this.module}).withCalc().withTitle();
         const models = await query.all();
         const categories = [];

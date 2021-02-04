@@ -56,7 +56,7 @@ Blog.Article = class Article extends Blog.Element {
         data.comments = data.comments.map(this.resolveCommentTemplate, this).join('');
 
         this.article.innerHTML = this.resolveTemplate('article', data);
-        Jam.i18n.translateContainer(this.$container);
+        Jam.t(this.$container);
         this.completeLoad(data);
     }
 
@@ -76,7 +76,7 @@ Blog.Article = class Article extends Blog.Element {
         if (!data || typeof data !== 'object') {
             return 'Invalid category data';
         }
-        data._title = Jam.Helper.escapeTags(data._title);
+        data._title = Jam.escape(data._title);
         return this.resolveTemplate('category', data);
     }
 
@@ -166,7 +166,7 @@ Blog.Article = class Article extends Blog.Element {
         if (typeof message === 'string') {
             const $attr = this.getFormAttr(element.name);
             $attr.addClass('has-error');
-            $attr.find('.error-block').html(Jam.i18n.translate(message));
+            $attr.find('.error-block').html(Jam.t(message));
         }
     }
 

@@ -1,19 +1,18 @@
 <!-- _widget/categories -->
-<div class="panel panel-warning">
-    <div class="panel-heading">
-        <h3 class="panel-title" data-t="">Categories</h3>
-    </div>
-    <div class="panel-body">
+<div class="card-warning card mb-3">
+    <div class="card-header" data-t="">Categories</div>
+    <div class="card-body">
         <% if (typeof error !== 'undefined') { %>
         <div class="alert-danger alert"><%- error %></div>
         <% } else { %>
-        <div class="list-group mb0">
+        <div class="list-group">
             <% const url = _url('article/category?id='); %>
             <% for (const item of categories) { %>
             <% if (item.counter > 0) { %>
-            <a href="<%- url + item.id %>" class="list-group-item<%- item.active ? ' active' : '' %>">
-                <span class="badge"><%- item.counter %></span>
+            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<%- item.active ? ' active' : '' %>"
+               href="<%- url + item.id %>">
                 <%= item.title %>
+                <span class="badge-pill badge-primary badge"><%- item.counter %></span>
             </a>
             <% }} %>
         </div>

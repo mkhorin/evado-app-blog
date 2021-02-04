@@ -1,6 +1,6 @@
 'use strict';
 
-Blog.CategoryWidget = class CategoryWidget extends Blog.LoadableContent {
+Blog.CategoryWidget = class CategoryWidget extends Blog.Loadable {
 
     init () {
         super.init();
@@ -27,16 +27,16 @@ Blog.CategoryWidget = class CategoryWidget extends Blog.LoadableContent {
     }
 
     render (data) {
-        let items = data && data.items;
+        let items = data?.items;
         items = Array.isArray(items) ? items : [];
         items = items.filter(data => data.publicArticleCounter);
         items = items.map(data => {
-            data._title = Jam.Helper.escapeTags(data._title);
+            data._title = Jam.StringHelper.escapeTags(data._title);
             return this.resolveTemplate('item', data);
         }).join('');
         return items
             ? this.resolveTemplate('list', {items})
-            : this.resolveTemplate('error', {text: Jam.i18n.translate('No categories with articles')});
+            : this.resolveTemplate('error', {text: Jam.t('No categories with articles')});
     }
 
     renderError () {

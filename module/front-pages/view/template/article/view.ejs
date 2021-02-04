@@ -9,25 +9,25 @@ const comments = model.rel('comments');
 
 <%- include(_view.get('_part/signboard')) %>
 
-<div class="row mb30">
+<div class="row mb-3">
 
-    <div class="col-sm-8">
+    <div class="col-md-8">
 
         <%- include('_breadcrumb', {text: 'Article'}) %>
 
-        <h1 class="mt0"><%= model.getTitle() %></h1>
+        <h1 class="mt-3"><%= model.getTitle() %></h1>
 
-        <p class="mb20">
-            <span class="badge badge-primary">
+        <p class="mb-3">
+            <span class="badge-info badge">
                 <%- _format(model.get('date'), 'dateLong') %>
             </span>
         </p>
 
-        <h4 class="mb20"><%= model.get('subtitle') %></h4>
+        <h5 class="mb-3"><%= model.get('subtitle') %></h5>
 
         <%- include('./_photos', {photos}) %>
 
-        <div class="mb20"><%- model.get('content') %></div>
+        <div class="mb-3"><%- model.get('content') %></div>
 
         <%- include('./_categories', {categories}) %>
         <hr>
@@ -36,7 +36,7 @@ const comments = model.rel('comments');
         <%- include('./_commentForm', {model: comment}) %>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-md-4">
         <%- include('_search') %>
         <%- _view.placeWidget('categories') %>
         <%- _view.placeWidget('recentComments') %>

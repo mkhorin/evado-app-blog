@@ -4,17 +4,22 @@ const Base = require('areto/view/Widget');
 
 module.exports = class RecentComments extends Base {
 
-    async run () {
-        const meta = this.module.getBaseMeta();
+    async execute () {
+        const module = this.module;
+        const meta = module.getBaseMeta();
         const className = 'comment';
         const viewName = 'publicList';
         const view = meta.getViewByClass(viewName, className);
         if (!view) {
-            return this.render({error: `Meta view not found: ${viewName}.${className}`});
+            return this.render({
+                error: `Metadata view not found: ${viewName}.${className}`
+            });
         }
-        const query = view.createQuery({module: this.module});
+        const query = view.createQuery({module});
         const comments = await query.limit(3).all();
-        return this.render({comments: comments.reverse()});
+        return this.render({
+            comments: comments.reverse()
+        });
     }
 
     render (data) {

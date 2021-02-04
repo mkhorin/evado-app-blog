@@ -1,18 +1,18 @@
 {
   "abstract": false,
-  "label": "Category",
+  "description": "Article classifier",
   "header": ".name",
+  "label": "Category",
   "order": {
     "name": 1
   },
-  "disableTreeView": true,
-  "description": "Article classifier",
   "attrs": [
     {
       "name": "name",
       "label": "Name",
       "type": "string",
       "commonSearchable": true,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
@@ -34,6 +34,7 @@
       "type": "boolean",
       "description": "Action binder used for counter attributes",
       "commonSearchable": false,
+      "createOnRead": false,
       "defaultValue": true,
       "eagerLoading": false,
       "escape": true,
@@ -54,6 +55,7 @@
       "label": "Auto increment counter",
       "type": "integer",
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
@@ -86,6 +88,7 @@
       "label": "Public article counter",
       "type": "calc",
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": false,
       "expression": [
@@ -116,7 +119,14 @@
       "name": "publicArticles",
       "label": "Public articles",
       "type": "backref",
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": false,
       "group": "articles",
@@ -137,20 +147,21 @@
       "selectListView": "publicList",
       "selectSearchable": false,
       "trim": true,
-      "unique": false,
-      "commands": [
-        "add",
-        "remove",
-        "create",
-        "edit"
-      ]
+      "unique": false
     },
     {
       "name": "parent",
       "label": "Parent category",
       "type": "ref",
       "viewType": "relationSelect",
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": true,
       "escape": false,
       "group": "hierarchy",
@@ -166,48 +177,49 @@
       "required": false,
       "selectSearchable": false,
       "trim": true,
-      "unique": false,
-      "commands": [
-        "add",
-        "remove",
-        "create",
-        "edit"
-      ]
+      "unique": false
     },
     {
       "name": "children",
       "label": "Сhild categories",
       "type": "backref",
-      "commonSearchable": false,
-      "eagerLoading": false,
-      "escape": false,
-      "group": "hierarchy",
-      "hidden": false,
-      "history": false,
-      "linkAttr": "parent",
-      "multiple": true,
-      "orderNumber": 70,
-      "sortable": false,
-      "sortableRelation": false,
-      "refClass": "category",
-      "readOnly": false,
-      "required": false,
-      "selectSearchable": false,
-      "trim": true,
-      "unique": false,
       "commands": [
         "add",
         "remove",
         "create",
         "edit"
-      ]
+      ],
+      "commonSearchable": false,
+      "createOnRead": false,
+      "eagerLoading": false,
+      "escape": false,
+      "group": "hierarchy",
+      "hidden": false,
+      "history": false,
+      "multiple": true,
+      "orderNumber": 70,
+      "sortable": false,
+      "sortableRelation": false,
+      "refAttr": "parent",
+      "refClass": "category",
+      "readOnly": false,
+      "required": false,
+      "selectSearchable": false,
+      "trim": true,
+      "unique": false
     },
     {
       "name": "comments",
       "label": "Comments",
       "type": "backref",
       "description": "Comments on all category articles",
+      "commands": [
+        "create",
+        "edit",
+        "delete"
+      ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": false,
       "group": "comments",
@@ -228,11 +240,6 @@
       "selectSearchable": false,
       "trim": true,
       "unique": false,
-      "commands": [
-        "create",
-        "edit",
-        "delete"
-      ],
       "via": {
         "refClass": "article",
         "refAttr": "categories"
@@ -244,6 +251,8 @@
       "name": "tabs",
       "label": "Tabs",
       "orderNumber": 1000,
+      "readOnly": false,
+      "required": false,
       "type": "tabs"
     },
     {
@@ -251,20 +260,26 @@
       "name": "articles",
       "label": "Public articles",
       "orderNumber": 1010,
-      "parent": "tabs"
+      "parent": "tabs",
+      "readOnly": false,
+      "required": false
     },
     {
       "hint": "Published comments on all category articles",
       "name": "comments",
       "label": "Public comments",
       "orderNumber": 1020,
-      "parent": "tabs"
+      "parent": "tabs",
+      "readOnly": false,
+      "required": false
     },
     {
       "name": "hierarchy",
       "label": "Hierarchy",
       "orderNumber": 1030,
-      "parent": "tabs"
+      "parent": "tabs",
+      "readOnly": false,
+      "required": false
     }
   ],
   "treeView": [

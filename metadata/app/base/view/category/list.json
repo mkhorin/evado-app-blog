@@ -1,5 +1,6 @@
 {
   "description": "Default category list",
+  "readOnly": false,
   "disableTreeView": true,
   "attrs": [
     {

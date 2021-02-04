@@ -13,7 +13,7 @@ module.exports = class ArticleController extends Base {
     }
 
     async actionIndex () {
-        const articleView = await this.getMetaView('publicList', 'article');
+        const articleView = await this.getMetadataView('publicList', 'article');
         if (!articleView) {
             throw new InvalidMetadata('Public article list not found');
         }
@@ -27,11 +27,11 @@ module.exports = class ArticleController extends Base {
     }
 
     async actionCategory () {
-        const articleView = await this.getMetaView('publicList', 'article');
+        const articleView = await this.getMetadataView('publicList', 'article');
         if (!articleView) {
             throw new InvalidMetadata('Public article list not found');
         }
-        const categoryView = await this.getMetaView(null, 'category');
+        const categoryView = await this.getMetadataView(null, 'category');
         if (!categoryView) {
             throw new InvalidMetadata('Category class not found');
         }
@@ -48,7 +48,7 @@ module.exports = class ArticleController extends Base {
     }
 
     async actionView () {
-        const articleView = await this.getMetaView('publicView', 'article');
+        const articleView = await this.getMetadataView('publicView', 'article');
         if (!articleView) {
             throw new InvalidMetadata('Public article view not found');
         }
@@ -59,10 +59,10 @@ module.exports = class ArticleController extends Base {
             throw new NotFound('Article not found');
         }
         const comment = this.spawn(Comment);
-        if (this.isGet()) {
+        if (this.isGetRequest()) {
             return this.renderView(model, comment);
         }
-        const commentView = await this.getMetaView(null, 'comment');
+        const commentView = await this.getMetadataView(null, 'comment');
         if (!commentView) {
             throw new InvalidMetadata('Comment class not found');
         }
@@ -81,14 +81,14 @@ module.exports = class ArticleController extends Base {
         };
     }
 
-    getMetaView (viewName, className) {
-        const metaClass = this.baseMeta.getClass(className);
-        if (!metaClass) {
-            return this.renderError(`Meta class not found: ${className}`);
+    getMetadataView (viewName, className) {
+        const cls = this.baseMeta.getClass(className);
+        if (!cls) {
+            return this.renderError(`Metadata class not found: ${className}`);
         }
-        const view = viewName ? metaClass.getView(viewName) : metaClass;
+        const view = viewName ? cls.getView(viewName) : cls;
         if (!view) {
-            return this.renderError(`Meta view not found: ${viewName}.${className}`);
+            return this.renderError(`Metadata view not found: ${viewName}.${className}`);
         }
         return view;
     }

@@ -4,6 +4,7 @@
   "filter": {
     "parent": null
   },
+  "readOnly": false,
   "attrs": [
     {
       "name": "name",

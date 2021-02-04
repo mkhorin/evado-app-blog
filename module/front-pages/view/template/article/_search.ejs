@@ -1,16 +1,15 @@
-<% const searchValue = typeof search === 'undefined' ? '' : search; %>
-
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h3 class="panel-title" data-t="">Search</h3>
-    </div>
-    <div class="panel-body">
+<%
+const searchValue = typeof search === 'undefined' ? '' : search;
+%>
+<div class="card-info card mb-3">
+    <div class="card-header" data-t="">Search</div>
+    <div class="card-body">
         <form action="<%- _url('index') %>" method="get">
             <div class="input-group">
                 <input type="search" name="text" class="form-control" value="<%= searchValue %>">
                 <span class="input-group-btn">
                     <button class="btn btn-primary" type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
+                        <i class="fas fa-search"></i>
                     </button>
                 </span>
             </div>

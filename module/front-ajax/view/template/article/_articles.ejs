@@ -1,5 +1,5 @@
 
-<div class="mb30" data-blog-handler="Articles"
+<div class="mb-3" data-blog-handler="Articles"
      data-url="<%- _url('/api/base/data/list') %>">
 
     <div class="list"></div>
@@ -12,11 +12,11 @@
         <div class="list-item" data-id="{{_id}}">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="mb20"><span class="badge badge-info mr10">{{date}}</span></div>
+                    <div class="mb-3"><span class="badge badge-info mr-1">{{date}}</span></div>
                     <h3><a href="#" class="article-list-item">{{title}}</a></h3>
-                    <h4>{{subtitle}}</h4>
-                    <div class="mb10">
-                        <span class="mr10" data-t="">Categories</span>
+                    <h5>{{subtitle}}</h5>
+                    <div class="my-3">
+                        <span class="mr-1" data-t="">Categories</span>
                         {{categories}}
                     </div>
                 </div>
@@ -31,19 +31,19 @@
     <template data-id="photoArticle">
         <div class="list-item" data-id="{{_id}}">
             <div class="row">
-                <div class="col-md-9 col-md-push-3">
-                    <div class="mb20"><span class="badge badge-info mr10">{{date}}</span></div>
+                <div class="col-md-9 order-md-2">
+                    <div class="mb-2"><span class="badge badge-info mr-1">{{date}}</span></div>
                     <h3><a href="#" class="article-list-item">{{title}}</a></h3>
-                    <h4>{{subtitle}}</h4>
-                    <div class="mb10">
-                        <span class="mr10" data-t="">Categories</span>
+                    <h5>{{subtitle}}</h5>
+                    <div class="my-3">
+                        <span class="mr-1" data-t="">Categories</span>
                         {{categories}}
                     </div>
                 </div>
-                <div class="col-md-3 col-md-pull-9">
+                <div class="col-md-3 order-md-1">
                     <a href="#" class="article-list-item" title="{{thumbnailText}}">
                         <img src="<%- _url('/api/base/file/thumbnail') %>?s=small&c=photo&id={{thumbnail}}"
-                             class="center-block thumbnail img-responsive" alt="">
+                             class="mx-auto img-thumbnail img-fluid" alt="">
                     </a>
                 </div>
             </div>
@@ -51,18 +51,18 @@
     </template>
 
     <template data-id="pagination">
-        <nav class="text-center">
+        <nav>
             <ul class="pagination">
-                <li><a href="#" data-action="first"><span>«</span></a></li>
-                <li><a href="#" data-action="prev"><span>‹</span></a></li>
+                <li class="page-item"><a class="page-link" href="#" data-action="first"><span>«</span></a></li>
+                <li class="page-item"><a class="page-link" href="#" data-action="prev"><span>‹</span></a></li>
                 {{pages}}
-                <li><a href="#" data-action="next"><span>›</span></a></li>
-                <li><a href="#" data-action="last"><span>»</span></a></li>
+                <li class="page-item"><a class="page-link" href="#" data-action="next"><span>›</span></a></li>
+                <li class="page-item"><a class="page-link" href="#" data-action="last"><span>»</span></a></li>
             </ul>
         </nav>
     </template>
 
     <template data-id="page">
-        <li class="{{active}}"><a href="#" data-page="{{page}}">{{text}}</a></li>
+        <li class="page-item {{active}}"><a class="page-link" href="#" data-page="{{page}}">{{text}}</a></li>
     </template>
 </div>

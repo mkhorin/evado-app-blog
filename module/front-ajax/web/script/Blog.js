@@ -3,7 +3,7 @@
 class Blog {
 
     static getElementClass (name) {
-        return Blog[name] && Blog[name].prototype instanceof Blog.Element ? Blog[name] : null;
+        return Blog[name]?.prototype instanceof Blog.Element ? Blog[name] : null;
     }
 
     static toggle ($element, state) {
@@ -11,12 +11,7 @@ class Blog {
     }
 
     static getTemplate (name, container) {
-        const template = container.querySelector(`template[data-id="${name}"]`);
-        if (template) {
-            return template.innerHTML;
-        }
-        console.error(`Template not found: ${name}`);
-        return '';
+        return container.querySelector(`template[data-id="${name}"]`)?.innerHTML;
     }
 
     static resolveTemplate (text, data) {
@@ -26,8 +21,7 @@ class Blog {
     static setPageTitle (text) {
         const $title = $(document.head).find('title');
         const base = $title.data('title');
-        text = Jam.i18n.translate(text);
-        $title.html(text ? `${text} - ${base}` : base);
+        $title.html(text ? `${Jam.t(text)} - ${base}` : base);
     }
 
     static escapeData (data, keys) {
@@ -151,7 +145,7 @@ Blog.AjaxQueue = class AjaxQueue {
             return false;
         }
         const {deferred, args} = this._tasks.splice(0, 1)[0];
-        const csrf = Jam.Helper.getCsrfToken();
+        const csrf = Jam.getCsrfToken();
         const data = {csrf, ...args[1]};
         const params = {
             method: 'post',
@@ -172,14 +166,12 @@ Blog.AjaxQueue = class AjaxQueue {
     }
 
     abort () {
-        if (this._xhr) {
-            this._xhr.abort();
-            this._xhr = null;
-        }
+        this._xhr?.abort();
+        this._xhr = null;
     }
 };
 
-Blog.LoadableContent = class LoadableContent extends Blog.Element {
+Blog.Loadable = class Loadable extends Blog.Element {
 
     init () {
         this.load();
