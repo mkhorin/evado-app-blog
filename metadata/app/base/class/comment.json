@@ -35,8 +35,8 @@
       "history": false,
       "multiple": false,
       "options": {
-        "cssLabel": "col-md-4",
-        "cssValue": "col-md-8"
+        "cssLabel": "col-xl-4 col-lg-2",
+        "cssValue": "col-xl-8 col-lg-10"
       },
       "orderNumber": 20,
       "sortable": true,
