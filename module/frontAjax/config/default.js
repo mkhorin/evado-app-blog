@@ -11,5 +11,6 @@ module.exports = {
         'router': {
             defaultController: 'article'
         },
-    }
+    },
+    assets: require('./default-assets')
 };

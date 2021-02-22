@@ -72,10 +72,10 @@ module.exports = {
             }
         },
         'frontAjax': {
-            Class: require('../module/front-ajax/Module')
+            Class: require('../module/frontAjax/Module')
         },
         'frontPages': {
-            Class: require('../module/front-pages/Module')
+            Class: require('../module/frontPages/Module')
         }
     },
     users: require('./default-users'),
