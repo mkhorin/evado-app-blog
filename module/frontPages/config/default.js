@@ -31,6 +31,5 @@ module.exports = {
     },
     params: {
         // defaultUrl: 'office/model?n=[item].[section]'
-        // separateNextCommonMenuItem: true
     }
 };

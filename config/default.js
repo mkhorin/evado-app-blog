@@ -66,10 +66,7 @@ module.exports = {
             Class: require('evado-module-account/Module')
         },
         'admin': {
-            Class: require('evado-module-admin/Module'),
-            params: {
-                separateNextCommonMenuItem: true
-            }
+            Class: require('evado-module-admin/Module')
         },
         'frontAjax': {
             Class: require('../module/frontAjax/Module')
@@ -80,10 +77,11 @@ module.exports = {
     },
     users: require('./default-users'),
     security: require('./default-security'),
+    sideMenu: require('./default-sideMenu'),
     tasks: require('./default-tasks'),
     utilities: require('./default-utilities'),
-    sideMenu: require('./default-sideMenu'),
-    params: {        
+    widgets: require('./default-widgets'),
+    params: {
         'enablePasswordReset': false,
         'enableSignUp': false,
         'enableSignUpVerification': false,
