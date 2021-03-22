@@ -6,17 +6,13 @@
 module.exports = {
 
     build: [{
-        Class: 'FileMerger',
+        Class: 'Packer',
         sources: [
-            'blog/Blog.js',
-            'blog/Element.js',
-            'blog/Loadable.js',
-            'blog'
+            'src/Blog.js',
+            'src/Element.js',
+            'src/Loadable.js',
+            'src'
         ],
-        target: 'dist/blog.min.js'
-    }],
-
-    deploy: {
-        'vendor': 'dist/blog.min.js'
-    }
+        target: 'vendor/blog.min.js'
+    }]
 };
