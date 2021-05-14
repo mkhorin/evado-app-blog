@@ -1,7 +1,7 @@
-
+<!-- article/_categories -->
 <% if (categories?.length) { %>
 <div class="my-3">
-    <b class="mr-1"><span data-t="">Categories</span>:</b>
+    <b class="me-1"><span data-t="">Categories</span>:</b>
     <% for (const category of categories) { %>
     <a href="<%= _url('category', {id: category.getId()}) %>" class="tag-item">
         <%= category.getTitle() %>

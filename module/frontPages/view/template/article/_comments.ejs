@@ -17,8 +17,8 @@ const counter = comments ? comments.length : 0;
         <div class="comment-column">
             <div class="comment-head">
                 <span class="text-secondary"><%- _format(comment.get('_createdAt'), 'datetime') %></span>
-                <b class="ml-3 text-info">
-                    <span class="mr-1 fa fa-user"></span>
+                <b class="ms-3 text-info">
+                    <span class="me-1 fa fa-user"></span>
                     <%= comment.get('name') %>
                 </b>
             </div>

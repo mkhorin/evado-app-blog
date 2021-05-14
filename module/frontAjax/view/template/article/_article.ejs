@@ -13,7 +13,7 @@
             <li class="breadcrumb-item" data-t="">Article</li>
         </ol>
         <h1 class="mt-b">{{title}}</h1>
-        <p class="mb-3"><span class="badge-info badge">{{date}}</span></p>
+        <p class="mb-3"><span class="bg-info badge">{{date}}</span></p>
         <h5 class="mb-3">{{subtitle}}</h5>
         {{carousel}}
         <div class="mb-3">{{content}}</div>
@@ -39,18 +39,21 @@
     </template>
 
     <template data-id="carousel">
-        <div id="article-photos" class="carousel slide my-3" data-ride="carousel" data-interval="false" data-wrap="true">
+        <div id="article-photos" class="carousel slide my-3"
+             data-bs-ride="carousel"
+             data-bs-interval="false"
+             data-bs-wrap="true">
             <div class="carousel-inner">
                 {{photos}}
             </div>
-            <a class="carousel-control-prev" href="#article-photos" role="button" data-slide="prev">
-                <span class="fas fa-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#article-photos" role="button" data-slide="next">
-                <span class="fas fa-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <button class="carousel-control-prev" data-bs-target="#article-photos" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" data-bs-target="#article-photos" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </template>
 
@@ -71,8 +74,8 @@
             <div class="comment-column">
                 <div class="comment-head">
                     <span class="text-secondary">{{date}}</span>
-                    <b class="ml-1 text-info">
-                        <span class="mr-1 fa fa-user"></span>
+                    <b class="ms-1 text-info">
+                        <span class="me-1 fa fa-user"></span>
                         {{user}}
                     </b>
                 </div>

@@ -16,7 +16,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="mb-3">
-            <span class="badge badge-info mr-1"><%- _format(model.get('date'), 'dateLong') %></span>
+            <span class="badge bg-info me-1"><%- _format(model.get('date'), 'dateLong') %></span>
         </div>
         <h3><a href="<%- url %>"><%= model.getTitle() %></a></h3>
         <% if (subtitle) { %>
@@ -24,7 +24,7 @@
         <% } %>
         <% if (categories?.length) { %>
         <div class="my-3">
-            <span class="mr-1" data-t="">Categories</span>
+            <span class="me-1" data-t="">Categories</span>
             <% for (const category of categories) { %>
             <a href="<%- _url('category', {id: category.getId()}) %>" class="tag-item">
                 <%= category.getTitle('name') %>
