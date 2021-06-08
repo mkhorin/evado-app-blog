@@ -7,7 +7,7 @@
     "file": "2020-01/5e2151604358d2290c02d4d9",
     "description": "Quis consequat eget odio in sagittis",
     "_size": 49376,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -30,7 +30,7 @@
     "file": "2020-01/5e2151524358d2290c02d4d6",
     "description": "Sed congue lorem ut est sed Praesent lacinia",
     "_size": 52629,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -53,7 +53,7 @@
     "file": "2020-01/5e21660eaf087c1b9c55fe14",
     "description": "Eget rutrum nec malesuada cursus nulla",
     "_size": 50107,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -70,7 +70,7 @@
     "file": "2020-01/5e216632af087c1b9c55fe19",
     "description": "Vestibulum id fringilla Lorem hendrerit hendrerit ipsum eget auctor",
     "_size": 45836,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -87,7 +87,7 @@
     "file": "2020-01/5e216644af087c1b9c55fe1c",
     "description": "Nam wisi ac ante eget ligula neque ligula orci cursus lorem",
     "_size": 42988,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -104,7 +104,7 @@
     "file": "2020-01/5e216660af087c1b9c55fe21",
     "description": "Vestibulum Pellentesque ullamcorper vel interdum orci pellentesque lorem nonummy hac dui",
     "_size": 42304,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -121,7 +121,7 @@
     "file": "2020-01/5e216671af087c1b9c55fe24",
     "description": "At Sed at eu ac convallis Donec urna nibh laoreet faucibus",
     "_size": 40755,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -138,7 +138,7 @@
     "file": "2020-01/5e21668faf087c1b9c55fe27",
     "description": "Augue Curabitur non et habitasse Nullam enim",
     "_size": 36166,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },
@@ -155,7 +155,7 @@
     "file": "2020-01/5e2166a3af087c1b9c55fe2a",
     "description": "Urna mauris Sed Pellentesque Vivamus tincidunt convallis",
     "_size": 26966,
-    "_mime": "image/jpeg",
+    "_type": "image/jpeg",
     "_creator": {
       "$oid": "5de0c08481d9ae2468e6fc64"
     },

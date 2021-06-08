@@ -5,7 +5,7 @@
     {
       "name": "file",
       "options": {
-        "thumbnail": "medium"
+        "thumbnail": "md"
       },
       "orderNumber": 10
     },

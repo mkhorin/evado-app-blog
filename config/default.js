@@ -25,7 +25,7 @@ module.exports = {
         'fileStorage': {
             thumbnail: {
                 sizes: {
-                    'large': {
+                    lg: {
                         composite: [{
                             input: 'asset/watermark/fileLarge.png',
                             gravity: 'center'

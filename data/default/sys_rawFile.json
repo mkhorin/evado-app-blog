@@ -4,7 +4,7 @@
       "$oid": "5e2151524358d2290c02d4d7"
     },
     "name": "photo-02.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 52629,
     "file": "2020-01/5e2151524358d2290c02d4d6",
     "createdAt": {
@@ -22,7 +22,7 @@
       "$oid": "5e2151604358d2290c02d4da"
     },
     "name": "photo-04.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 49376,
     "file": "2020-01/5e2151604358d2290c02d4d9",
     "createdAt": {
@@ -40,7 +40,7 @@
       "$oid": "5e21660eaf087c1b9c55fe15"
     },
     "name": "photo-03.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 50107,
     "file": "2020-01/5e21660eaf087c1b9c55fe14",
     "createdAt": {
@@ -58,7 +58,7 @@
       "$oid": "5e216632af087c1b9c55fe1a"
     },
     "name": "photo-05.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 45836,
     "file": "2020-01/5e216632af087c1b9c55fe19",
     "createdAt": {
@@ -76,7 +76,7 @@
       "$oid": "5e216644af087c1b9c55fe1d"
     },
     "name": "photo-07.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 42988,
     "file": "2020-01/5e216644af087c1b9c55fe1c",
     "createdAt": {
@@ -94,7 +94,7 @@
       "$oid": "5e216660af087c1b9c55fe22"
     },
     "name": "photo-08.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 42304,
     "file": "2020-01/5e216660af087c1b9c55fe21",
     "createdAt": {
@@ -112,7 +112,7 @@
       "$oid": "5e216671af087c1b9c55fe25"
     },
     "name": "photo-10.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 40755,
     "file": "2020-01/5e216671af087c1b9c55fe24",
     "createdAt": {
@@ -130,7 +130,7 @@
       "$oid": "5e21668faf087c1b9c55fe28"
     },
     "name": "photo-11.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 36166,
     "file": "2020-01/5e21668faf087c1b9c55fe27",
     "createdAt": {
@@ -148,7 +148,7 @@
       "$oid": "5e2166a3af087c1b9c55fe2b"
     },
     "name": "photo-12.jpg",
-    "mime": "image/jpeg",
+    "type": "image/jpeg",
     "size": 26966,
     "file": "2020-01/5e2166a3af087c1b9c55fe2a",
     "createdAt": {
