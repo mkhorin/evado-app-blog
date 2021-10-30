@@ -1,12 +1,12 @@
 {
   "abstract": false,
-  "label": "Article",
+  "description": "Main content",
   "header": ".title",
+  "label": "Article",
   "modelConfig": {
     "Class": "component/meta/model/SomeModel",
     "somePropery": "someValue"
   },
-  "description": "Main content",
   "attrs": [
     {
       "name": "status",
@@ -15,10 +15,12 @@
       "viewType": "radioList",
       "description": "Attribute determines the state of article",
       "commonSearchable": false,
+      "createOnRead": false,
       "defaultValue": "draft",
       "eagerLoading": false,
       "escape": false,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "orderNumber": 10,
@@ -27,6 +29,7 @@
       "readOnly": false,
       "required": true,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false,
       "enums": [
@@ -35,17 +38,20 @@
             {
               "value": "draft",
               "text": "Draft",
-              "hint": "Writing article mode"
+              "hint": "Writing article mode",
+              "orderNumber": 10
             },
             {
               "value": "published",
               "text": "Published",
-              "hint": "Published article"
+              "hint": "Published article",
+              "orderNumber": 20
             },
             {
               "value": "archived",
               "text": "Archived",
-              "hint": "Article removed from publication"
+              "hint": "Article removed from publication",
+              "orderNumber": 30
             }
           ]
         }
@@ -56,12 +62,14 @@
       "label": "Date",
       "type": "date",
       "commonSearchable": true,
+      "createOnRead": false,
       "defaultValue": [
         "$now"
       ],
       "eagerLoading": false,
       "escape": false,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "indexing": -1,
       "multiple": false,
@@ -71,6 +79,7 @@
       "readOnly": false,
       "required": true,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     },
@@ -79,9 +88,11 @@
       "label": "Title",
       "type": "string",
       "commonSearchable": true,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "orderNumber": 30,
@@ -90,6 +101,7 @@
       "readOnly": false,
       "required": true,
       "selectSearchable": true,
+      "signed": false,
       "trim": true,
       "unique": true
     },
@@ -98,9 +110,11 @@
       "label": "Subtitle",
       "type": "string",
       "commonSearchable": true,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "orderNumber": 40,
@@ -109,6 +123,7 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     },
@@ -117,9 +132,11 @@
       "label": "Content",
       "type": "text",
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": false,
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "options": {
@@ -131,6 +148,7 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
       "unique": false
     },
@@ -139,18 +157,23 @@
       "label": "Categories",
       "type": "ref",
       "description": "Categories with article",
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": true,
       "escape": true,
       "group": "categories",
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": true,
       "onDelete": "null",
       "options": {
-        "commands": {
-          "delete": false
-        },
         "css": "no-label"
       },
       "orderNumber": 60,
@@ -160,24 +183,27 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
-      "unique": false,
-      "commands": [
-        "add",
-        "remove",
-        "create",
-        "edit"
-      ]
+      "unique": false
     },
     {
       "name": "mainPhoto",
       "label": "Main photo",
       "type": "ref",
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "group": "photos",
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": false,
       "onDelete": "null",
@@ -188,24 +214,27 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
-      "unique": false,
-      "commands": [
-        "add",
-        "remove",
-        "create",
-        "edit"
-      ]
+      "unique": false
     },
     {
       "name": "photos",
       "label": "Photos",
       "type": "ref",
+      "commands": [
+        "add",
+        "remove",
+        "create",
+        "edit"
+      ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "group": "photos",
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "multiple": true,
       "onDelete": "null",
@@ -216,24 +245,26 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
-      "unique": false,
-      "commands": [
-        "add",
-        "remove",
-        "create",
-        "edit"
-      ]
+      "unique": false
     },
     {
       "name": "comments",
       "label": "Comments",
       "type": "backref",
+      "commands": [
+        "create",
+        "edit",
+        "delete"
+      ],
       "commonSearchable": false,
+      "createOnRead": false,
       "eagerLoading": false,
       "escape": true,
       "group": "comments",
       "hidden": false,
+      "hideEmpty": false,
       "history": false,
       "listView": "inArticle",
       "multiple": true,
@@ -251,21 +282,19 @@
       "readOnly": false,
       "required": false,
       "selectSearchable": false,
+      "signed": false,
       "trim": true,
-      "unique": false,
-      "commands": [
-        "add",
-        "remove",
-        "create",
-        "edit"
-      ]
+      "unique": false
     }
   ],
   "groups": [
     {
       "name": "tabs",
       "label": "Tabs",
+      "loadable": false,
       "orderNumber": 1000,
+      "readOnly": false,
+      "required": false,
       "type": "tabs"
     },
     {
@@ -273,20 +302,29 @@
       "hint": "Categories containing article",
       "name": "categories",
       "label": "Categories",
+      "loadable": false,
       "orderNumber": 1010,
-      "parent": "tabs"
+      "parent": "tabs",
+      "readOnly": false,
+      "required": false
     },
     {
       "name": "photos",
       "label": "Photos",
+      "loadable": false,
       "orderNumber": 1020,
-      "parent": "tabs"
+      "parent": "tabs",
+      "readOnly": false,
+      "required": false
     },
     {
       "name": "comments",
       "label": "Comments",
+      "loadable": false,
       "orderNumber": 1030,
-      "parent": "tabs"
+      "parent": "tabs",
+      "readOnly": false,
+      "required": false
     }
   ],
   "rules": [

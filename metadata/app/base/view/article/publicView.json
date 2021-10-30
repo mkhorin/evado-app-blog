@@ -4,6 +4,7 @@
   "filter": {
     "status": "published"
   },
+  "readOnly": false,
   "attrs": [
     {
       "name": "date",

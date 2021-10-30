@@ -33,7 +33,7 @@ module.exports = {
             type: 'class',
             class: ['article', 'photo']
         },
-        rule: 'creator'
+        rules: 'creator'
     }, {
         roles: 'writer',
         type: 'allow',

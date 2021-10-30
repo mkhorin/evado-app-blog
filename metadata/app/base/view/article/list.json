@@ -1,6 +1,7 @@
 {
   "label": "All articles",
   "description": "Default article list",
+  "readOnly": false,
   "attrs": [
     {
       "name": "status",

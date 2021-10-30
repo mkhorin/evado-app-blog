@@ -1,12 +1,7 @@
 {
   "label": "Article comments",
   "description": "Comments are displayed inside article. Without Article attribute",
-  "options": {
-    "commands": {
-      "link": false,
-      "unlink": false
-    }
-  },
+  "readOnly": false,
   "attrs": [
     {
       "name": "_state",
