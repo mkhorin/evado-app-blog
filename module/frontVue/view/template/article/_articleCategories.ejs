@@ -1,0 +1,8 @@
+<!-- article/_articleCategories -->
+<template id="article-categories">
+    <span>
+        <template v-for="item in items">
+            <a @click.prevent="onItem" :data-id="item._id" href="#" class="tag-item">{{item._title}}</a>
+        </template>
+    </span>
+</template>

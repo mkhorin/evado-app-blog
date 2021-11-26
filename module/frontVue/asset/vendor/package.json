@@ -1,0 +1,11 @@
+{
+  "name": "evado-app-blog-vue",
+  "version": "1.0.0",
+  "description": "Evado app vendors",
+  "author": "Maxim Khorin",
+  "license": "MIT",
+  "repository": {},
+  "dependencies": {
+    "vue": "^2.6.14"
+  }
+}

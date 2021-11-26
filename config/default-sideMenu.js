@@ -23,6 +23,9 @@ module.exports = {
         label: 'Front AJAX'
     }, {
         url: 'front-pages',
-        label: 'Front pages'
+        label: 'Front Pages'
+    }, {
+        url: 'front-vue',
+        label: 'Front Vue'
     }]
 };

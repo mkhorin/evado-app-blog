@@ -1,0 +1,53 @@
+<%
+layout(_view.get('_layout/content'));
+block('title', 'Article');
+
+script('front-vue/vendor/vue/vue.js');
+script('front-vue/script/articleCategories.js');
+script('front-vue/script/articleComments.js');
+script('front-vue/script/articleItem.js');
+script('front-vue/script/articleView.js');
+script('front-vue/script/articles.js');
+script('front-vue/script/carousel.js');
+script('front-vue/script/categories.js');
+script('front-vue/script/commentForm.js');
+script('front-vue/script/pagination.js');
+script('front-vue/script/search.js');
+script('front-vue/script/blog.js');
+%>
+
+<%- include(_view.get('_part/signboard')) %>
+<%- include(_view.get('_part/pagination')) %>
+
+<%- include('./_articles') %>
+<%- include('./_articleCategories') %>
+<%- include('./_articleComments') %>
+<%- include('./_articleItem') %>
+<%- include('./_articleView') %>
+<%- include('./_carousel') %>
+<%- include('./_categories') %>
+<%- include('./_commentForm') %>
+<%- include('./_search') %>
+
+<div id="blog" class="blog"
+     data-list-url="<%- _url('/api/base/data/list') %>"
+     data-read-url="<%- _url('/api/base/data/read') %>"
+     data-create-url="<%- _url('/api/base/data/create') %>"
+     data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=photo"
+     data-csrf="<%- _controller.getCsrfToken() %>">
+
+    <div class="row">
+        <div class="col-md-4 order-md-2">
+
+            <search ref="search"></search>
+            <categories ref="categories"></categories>
+
+        </div>
+        <div class="col-md-8 order-md-1">
+
+            <articles></articles>
+            <article-view></article-view>
+
+        </div>
+    </div>
+</div>

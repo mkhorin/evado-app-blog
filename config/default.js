@@ -73,6 +73,9 @@ module.exports = {
         },
         'frontPages': {
             Class: require('../module/frontPages/Module')
+        },
+        'frontVue': {
+            Class: require('../module/frontVue/Module')
         }
     },
     users: require('./default-users'),

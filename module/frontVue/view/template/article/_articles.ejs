@@ -1,0 +1,14 @@
+<!-- article/_articles -->
+<template id="articles">
+    <div v-show="active">
+        <div v-show="empty" class="alert-warning alert">
+            No articles found
+        </div>
+        <div class="list mb-3">
+            <articles-item v-for="item in items"
+                           :key="item.id"
+                           :item="item"></articles-item>
+        </div>
+        <pagination></pagination>
+    </div>
+</template>

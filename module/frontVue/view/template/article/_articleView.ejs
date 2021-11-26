@@ -1,0 +1,28 @@
+<!-- article/_articleView -->
+<template id="article-view">
+    <div class="mb-3" v-show="active">
+        <div class="article">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#" class="to-articles" @click.prevent="onArticles">Articles</a>
+                </li>
+                <li class="breadcrumb-item">Article</li>
+            </ol>
+            <h1 class="mt-b">{{title}}</h1>
+            <p class="mb-3"><span class="bg-info badge">{{date}}</span></p>
+            <h5 class="mb-3">{{subtitle}}</h5>
+
+            <carousel v-if="photos.length" :items="photos"></carousel>
+
+            <div class="mb-3" v-html="content"></div>
+            <div class="mb-3">
+                <b class="mr 1"><span data-t="">Categories</span>:</b>
+                <article-categories :items="categories"></article-categories>
+            </div>
+
+            <article-comments :items="comments"></article-comments>
+            <hr>
+            <comment-form :article="id"></comment-form>
+        </div>
+    </div>
+</template>
