@@ -2,7 +2,7 @@
 
 Vue.component('article-view', {
     props: {
-        'url': String
+        url: String
     },
     data () {
         return {

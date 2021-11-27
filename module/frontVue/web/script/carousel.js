@@ -10,7 +10,7 @@ Vue.component('carousel', {
         }
     },
     watch: {
-        items: function () {
+        items () {
             bootstrap.Carousel.getInstance(this.$el)?.to(0);
         }
     },

@@ -2,7 +2,7 @@
 <template id="articles">
     <div v-show="active">
         <div v-show="empty" class="alert-warning alert">
-            No articles found
+            <span data-t="">No articles found</span>
         </div>
         <div class="list mb-3">
             <articles-item v-for="item in items"

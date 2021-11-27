@@ -34,7 +34,7 @@ Vue.component('pagination', {
             return result;
         },
         onPage (event) {
-            this.loadPage(Number(event.target.dataset.page));
+            this.loadPage(Number(event.currentTarget.dataset.page));
         },
         onFirst () {
             this.loadPage(0);

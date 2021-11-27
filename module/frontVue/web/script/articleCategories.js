@@ -6,7 +6,7 @@ Vue.component('article-categories', {
     },
     methods: {
         onItem (event) {
-            this.$root.$emit('select-category', event.target.dataset.id);
+            this.$root.$emit('select-category', event.currentTarget.dataset.id);
         }
     },
     template: '#article-categories'

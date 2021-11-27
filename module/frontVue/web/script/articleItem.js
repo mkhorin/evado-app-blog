@@ -2,10 +2,10 @@
 
 Vue.component('articles-item', {
     props: {
-        'item': Object
+        item: Object
     },
     methods: {
-        onArticle (event) {
+        onArticle () {
             this.$root.$emit('article', this.item.id);
         }
     },

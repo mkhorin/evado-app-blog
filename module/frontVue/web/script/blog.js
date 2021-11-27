@@ -1,5 +1,19 @@
 'use strict';
 
+Vue.mixin({
+    mounted () {
+        this.translateEl();
+    },
+    updated () {
+        this.translateEl();
+    },
+    methods: {
+        translateEl () {
+            Jam.i18n.translate($(this.$el));
+        }
+    }
+});
+
 const blog = new Vue({
     el: '#blog',
     props: {
