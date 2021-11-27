@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('categories', {
-    template: '#categories',
     data () {
         return {
             items: [],
@@ -47,5 +46,6 @@ Vue.component('categories', {
         unselect () {
             this.getActiveEl()?.classList.remove('active');
         }
-    }
+    },
+    template: '#categories'
 });

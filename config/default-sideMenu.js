@@ -20,12 +20,12 @@ module.exports = {
         type: 'divider'
     }, {
         url: 'front-ajax',
-        label: 'Front AJAX'
+        label: 'Ajax front'
     }, {
         url: 'front-pages',
-        label: 'Front Pages'
+        label: 'Pages front'
     }, {
         url: 'front-vue',
-        label: 'Front Vue'
+        label: 'Vue front'
     }]
 };

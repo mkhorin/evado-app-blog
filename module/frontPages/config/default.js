@@ -5,7 +5,7 @@
 
 module.exports = {
 
-    title: 'Front Pages',
+    title: 'Pages front',
 
     components: {
         'cache': {

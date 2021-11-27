@@ -5,7 +5,7 @@
 
 module.exports = {
 
-    title: 'Front Vue',
+    title: 'Vue front',
 
     components: {
         'router': {

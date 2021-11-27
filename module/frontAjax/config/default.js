@@ -5,7 +5,7 @@
 
 module.exports = {
 
-    title: 'Front AJAX',
+    title: 'Ajax front',
 
     components: {
         'router': {

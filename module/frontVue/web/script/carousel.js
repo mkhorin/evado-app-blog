@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('carousel', {
-    template: '#carousel',
     props: {
         items: Array
     },
@@ -14,5 +13,6 @@ Vue.component('carousel', {
         items: function () {
             bootstrap.Carousel.getInstance(this.$el)?.to(0);
         }
-    }
+    },
+    template: '#carousel'
 });

@@ -7,7 +7,9 @@ const blog = new Vue({
         'listUrl': String,
         'createUrl': String,
         'readUrl': String,
-        'thumbnailUrl': String
+        'thumbnailUrl': String,
+        'userName': String,
+        'userEmail': String
     },
     propsData: {
         ...document.querySelector('#blog').dataset

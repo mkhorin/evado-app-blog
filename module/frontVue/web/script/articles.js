@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('articles', {
-    template: '#articles',
     props: {
         'pageSize': {
             type: Number,
@@ -72,5 +71,6 @@ Vue.component('articles', {
                 text: data.description
             };
         }
-    }
+    },
+    template: '#articles'
 });

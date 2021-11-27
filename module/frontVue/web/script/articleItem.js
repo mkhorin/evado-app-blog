@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('articles-item', {
-    template: '#articles-item',
     props: {
         'item': Object
     },
@@ -9,5 +8,6 @@ Vue.component('articles-item', {
         onArticle (event) {
             this.$root.$emit('article', this.item.id);
         }
-    }
+    },
+    template: '#articles-item'
 });

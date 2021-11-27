@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('article-categories', {
-    template: '#article-categories',
     props: {
         items: Array
     },
@@ -9,5 +8,6 @@ Vue.component('article-categories', {
         onItem (event) {
             this.$root.$emit('select-category', event.target.dataset.id);
         }
-    }
+    },
+    template: '#article-categories'
 });

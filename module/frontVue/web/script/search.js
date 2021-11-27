@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('search', {
-    template: '#search',
     data () {
         return {
             text: ''
@@ -16,5 +15,6 @@ Vue.component('search', {
         onSearch () {
             this.$root.$emit('update-articles');
         }
-    }
+    },
+    template: '#search'
 });

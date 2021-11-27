@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('article-view', {
-    template: '#article-view',
     props: {
         'url': String
     },
@@ -66,5 +65,6 @@ Vue.component('article-view', {
                 content: item.content
             }));
         }
-    }
+    },
+    template: '#article-view'
 });

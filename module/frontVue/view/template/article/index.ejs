@@ -14,6 +14,9 @@ script('front-vue/script/commentForm.js');
 script('front-vue/script/pagination.js');
 script('front-vue/script/search.js');
 script('front-vue/script/blog.js');
+
+const userName = _controller.user.getTitle('');
+const userEmail = _controller.user.getEmail();
 %>
 
 <%- include(_view.get('_part/signboard')) %>
@@ -30,6 +33,8 @@ script('front-vue/script/blog.js');
 <%- include('./_search') %>
 
 <div id="blog" class="blog"
+     data-user-name="<%= userName %>"
+     data-user-email="<%= userEmail %>"
      data-list-url="<%- _url('/api/base/data/list') %>"
      data-read-url="<%- _url('/api/base/data/read') %>"
      data-create-url="<%- _url('/api/base/data/create') %>"

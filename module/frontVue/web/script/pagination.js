@@ -1,7 +1,6 @@
 'use strict';
 
 Vue.component('pagination', {
-    template: '#pagination',
     data () {
         return {
             numPages: 0,
@@ -58,5 +57,6 @@ Vue.component('pagination', {
             }
             this.$parent.load(page);
         }
-    }
+    },
+    template: '#pagination'
 });
