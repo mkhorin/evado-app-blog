@@ -41,7 +41,7 @@ Vue.component('comment-form', {
                 email: this.email,
                 content: this.content
             };
-            await this.$root.fetch(this.$root.createUrl, {
+            await this.fetchText('create', {
                 class: 'comment',
                 view: 'publicCreate',
                 data

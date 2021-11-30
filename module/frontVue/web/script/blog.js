@@ -1,14 +1,40 @@
 'use strict';
 
 Vue.mixin({
+    data () {
+        return {
+            loading: false
+        };
+    },
     mounted () {
-        this.translateEl();
+        this.translateElement();
     },
     updated () {
-        this.translateEl();
+        this.translateElement();
     },
     methods: {
-        translateEl () {
+        getDataUrl (action) {
+            return `${this.$root.dataUrl}/${action}`;
+        },
+        getThumbnailUrl (id, size = 'sm') {
+            return `${this.$root.thumbnailUrl}&s=${size}&id=${id}`;
+        },
+        fetchJson () {
+            return this.fetchByMethod('getJson', ...arguments);
+        },
+        fetchText (url, data) {
+            return this.fetchByMethod('getText', ...arguments);
+        },
+        fetchByMethod (name, action, data) {
+            try {
+                const csrf = this.$root.csrf;
+                this.loading = true;
+                return (new Jam.Fetch)[name](this.getDataUrl(action), {csrf, ...data});
+            } finally {
+                this.loading = false;
+            }
+        },
+        translateElement () {
             Jam.i18n.translate($(this.$el));
         }
     }
@@ -18,9 +44,7 @@ const blog = new Vue({
     el: '#blog',
     props: {
         'csrf': String,
-        'listUrl': String,
-        'createUrl': String,
-        'readUrl': String,
+        'dataUrl': String,
         'thumbnailUrl': String,
         'userName': String,
         'userEmail': String
@@ -39,6 +63,9 @@ const blog = new Vue({
         this.$on('update-articles', this.onUpdateArticle);
     },
     methods: {
+        isActivePage (name) {
+            return this.activePage === name;
+        },
         onArticles () {
             this.activePage = 'articles';
         },
@@ -47,35 +74,6 @@ const blog = new Vue({
         },
         onUpdateArticle () {
             this.$emit('articles');
-        },
-        getThumbnailUrl (id, size = 'sm') {
-            return `${this.thumbnailUrl}&s=${size}&id=${id}`;
-        },
-        formatDate (data) {
-            return (new Date(data)).toLocaleDateString();
-        },
-        formatDatetime (data) {
-            return (new Date(data)).toLocaleString();
-        },
-        async fetchJson () {
-            const res = await this.fetch(...arguments);
-            return res.json();
-        },
-        async fetch (url, data) {
-            data = {
-                csrf: this.csrf,
-                ...data
-            };
-            const res = await fetch(url, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(data)
-            });
-            if (res.status === 200) {
-                return res;
-            }
-            const text = await res.text() ;
-            throw new Error(text || res.statusText);
         }
     }
 });

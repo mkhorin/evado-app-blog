@@ -5,9 +5,10 @@
             <span data-t="">No articles found</span>
         </div>
         <div class="list mb-3">
-            <articles-item v-for="item in items"
-                           :key="item.id"
-                           :item="item"></articles-item>
+            <articles-item
+                v-for="item in items"
+                :key="item.id"
+                :item="item"></articles-item>
         </div>
         <pagination></pagination>
     </div>

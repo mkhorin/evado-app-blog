@@ -1,7 +1,6 @@
 {
-  "name": "evado-app-blog-vue",
+  "name": "front-vue",
   "version": "1.0.0",
-  "description": "Evado app vendors",
   "author": "Maxim Khorin",
   "license": "MIT",
   "repository": {},

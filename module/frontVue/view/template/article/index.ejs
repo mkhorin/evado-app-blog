@@ -35,9 +35,7 @@ const userEmail = _controller.user.getEmail();
 <div id="blog" class="blog"
      data-user-name="<%= userName %>"
      data-user-email="<%= userEmail %>"
-     data-list-url="<%- _url('/api/base/data/list') %>"
-     data-read-url="<%- _url('/api/base/data/read') %>"
-     data-create-url="<%- _url('/api/base/data/create') %>"
+     data-data-url="<%- _url('/api/base/data') %>"
      data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=photo"
      data-csrf="<%- _controller.getCsrfToken() %>">
 
@@ -50,8 +48,8 @@ const userEmail = _controller.user.getEmail();
         </div>
         <div class="col-md-8 order-md-1">
 
-            <articles></articles>
-            <article-view></article-view>
+            <articles :active-page="activePage"></articles>
+            <article-view :active-page="activePage"></article-view>
 
         </div>
     </div>

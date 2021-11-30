@@ -2,7 +2,8 @@
 
 Vue.component('articles', {
     props: {
-        'pageSize': {
+        activePage: String,
+        pageSize: {
             type: Number,
             default: 5
         }
@@ -15,7 +16,7 @@ Vue.component('articles', {
     },
     computed: {
         active () {
-            return this.$root.activePage === 'articles';
+            return this.activePage === 'articles';
         },
         empty () {
             return !this.items.length;
@@ -34,15 +35,15 @@ Vue.component('articles', {
             this.load(0);
         },
         async load (page) {
-            const data = await this.$root.fetchJson(this.$root.listUrl, {
+            const pageSize = this.pageSize;
+            const data = await this.fetchJson('list', {
                 class: 'article',
                 view: 'publicList',
-                length: this.pageSize,
-                start: page * this.pageSize,
+                length: pageSize,
+                start: pageSize * page,
                 search: this.$root.$refs.search?.text,
                 filter: this.getFilter()
             });
-            const pageSize = this.pageSize;
             this.$emit('load', {...data, pageSize, page});
         },
         getFilter () {
@@ -60,14 +61,14 @@ Vue.component('articles', {
                 id: item._id,
                 title: item._title,
                 subtitle: item.subtitle,
-                date: this.$root.formatDate(item.date),
+                date: Jam.FormatHelper.asDate(item.date),
                 categories: item.categories,
                 thumbnail: item.mainPhoto ? this.formatThumbnail(item.mainPhoto) : null
             }));
         },
         formatThumbnail (data) {
             return {
-                url: this.$root.getThumbnailUrl(data._id, 'sm'),
+                url: this.getThumbnailUrl(data._id, 'sm'),
                 text: data.description
             };
         }

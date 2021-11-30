@@ -18,11 +18,11 @@ Vue.component('categories', {
         await this.load();
     },
     methods: {
-        getActiveEl () {
+        getActiveElement () {
             return this.$el.querySelector('.active');
         },
         onItem ({currentTarget}) {
-            const id = this.getActiveEl() === currentTarget ? null : currentTarget.dataset.id;
+            const id = this.getActiveElement() === currentTarget ? null : currentTarget.dataset.id;
             this.$root.$emit('select-category', id);
         },
         onLoad ({items}) {
@@ -30,7 +30,7 @@ Vue.component('categories', {
         },
         onSelect (id) {
             const target = this.$el.querySelector(`[data-id="${id}"]`);
-            if (this.getActiveEl() !== target) {
+            if (this.getActiveElement() !== target) {
                 this.unselect();
                 target?.classList.add('active');
                 this.selected = target?.dataset.id;
@@ -38,13 +38,13 @@ Vue.component('categories', {
             }
         },
         async load () {
-            const data = await this.$root.fetchJson(this.$root.listUrl, {
+            const data = await this.fetchJson('list', {
                 class: 'category'
             });
             this.$emit('load', data);
         },
         unselect () {
-            this.getActiveEl()?.classList.remove('active');
+            this.getActiveElement()?.classList.remove('active');
         }
     },
     template: '#categories'

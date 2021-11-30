@@ -2,7 +2,7 @@
 
 Vue.component('article-view', {
     props: {
-        url: String
+        activePage: String
     },
     data () {
         return {
@@ -19,8 +19,8 @@ Vue.component('article-view', {
     },
     computed: {
         active () {
-            return this.$root.activePage === 'article';
-        },
+            return this.activePage === 'article';
+        }
     },
     async created () {
         this.$root.$on('article', this.onArticle);
@@ -36,7 +36,7 @@ Vue.component('article-view', {
         onLoad (data) {
             this.id = data._id;
             this.content = data.content;
-            this.date = this.$root.formatDate(data.date);
+            this.date = Jam.FormatHelper.asDate(data.date);
             this.title = data.title;
             this.subtitle = data.subtitle;
             this.categories = data.categories;
@@ -44,7 +44,7 @@ Vue.component('article-view', {
             this.comments = this.formatComments(data.comments);
         },
         async load (id) {
-            const data = await this.$root.fetchJson(this.$root.readUrl, {
+            const data = await this.fetchJson('read', {
                 class: 'article',
                 view: 'publicView',
                 id
@@ -54,14 +54,14 @@ Vue.component('article-view', {
         formatPhotos (items) {
             return items.map((item, index) => ({
                 description: item.description,
-                url: this.$root.getThumbnailUrl(item._id, 'lg'),
+                url: this.getThumbnailUrl(item._id, 'lg'),
                 active: !index
             }));
         },
         formatComments (items) {
             return items.map(item => ({
                 user: item.user,
-                date: this.$root.formatDatetime(item._createdAt),
+                date: Jam.FormatHelper.asDatetime(item._createdAt),
                 content: item.content
             }));
         }
