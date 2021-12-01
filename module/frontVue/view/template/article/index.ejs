@@ -42,14 +42,15 @@ const userEmail = _controller.user.getEmail();
     <div class="row">
         <div class="col-md-4 order-md-2">
 
-            <search ref="search"></search>
-            <categories ref="categories"></categories>
+            <search ref="search" :search="activeSearch"></search>
+            <categories ref="categories" :category="activeCategory"></categories>
 
         </div>
         <div class="col-md-8 order-md-1">
 
-            <articles :active-page="activePage"></articles>
-            <article-view :active-page="activePage"></article-view>
+            <keep-alive>
+                <component :is="activePage" v-bind="activePageProps"></component>
+            </keep-alive>
 
         </div>
     </div>

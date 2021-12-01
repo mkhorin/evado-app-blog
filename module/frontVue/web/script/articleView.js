@@ -2,7 +2,7 @@
 
 Vue.component('article-view', {
     props: {
-        activePage: String
+        article: String
     },
     data () {
         return {
@@ -17,21 +17,21 @@ Vue.component('article-view', {
             title: ''
         };
     },
-    computed: {
-        active () {
-            return this.activePage === 'article';
-        }
-    },
     async created () {
-        this.$root.$on('article', this.onArticle);
         this.$on('load', this.onLoad);
+        await this.reload();
     },
     methods: {
-        onArticles () {
-            this.$root.$emit('articles');
+        async reload () {
+            await this.load(this.article);
         },
-        onArticle (id) {
-            this.load(id);
+        async load (id) {
+            const data = await this.fetchJson('read', {
+                class: 'article',
+                view: 'publicView',
+                id
+            });
+            this.$emit('load', data);
         },
         onLoad (data) {
             this.id = data._id;
@@ -42,14 +42,6 @@ Vue.component('article-view', {
             this.categories = data.categories;
             this.photos = this.formatPhotos(data.photos);
             this.comments = this.formatComments(data.comments);
-        },
-        async load (id) {
-            const data = await this.fetchJson('read', {
-                class: 'article',
-                view: 'publicView',
-                id
-            });
-            this.$emit('load', data);
         },
         formatPhotos (items) {
             return items.map((item, index) => ({

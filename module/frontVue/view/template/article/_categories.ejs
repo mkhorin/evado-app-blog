@@ -4,12 +4,12 @@
         <div class="card-header" data-t="">Categories</div>
         <div class="card-body">
             <div class="alert-warning alert mb-0" v-if="empty">
-                No categories found
+                <span data-t="">No categories found</span>
             </div>
             <div class="list-group" v-else="empty">
                 <template v-for="item in items">
                     <a @click.prevent="onItem" :data-id="item._id" href="#"
-                       class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                       :class="{'active': category === item._id, 'list-group-item':true, 'list-group-item-action':true, 'd-flex':true, 'justify-content-between':true, 'align-items-center':true}">
                         <span>{{item._title}}</span>
                         <span class="badge bg-dark">{{item.publicArticleCounter}}</span>
                     </a>

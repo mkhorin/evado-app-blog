@@ -6,7 +6,7 @@ Vue.component('articles-item', {
     },
     methods: {
         onArticle () {
-            this.$root.$emit('article', this.item.id);
+            this.toArticle(this.item.id);
         }
     },
     template: '#articles-item'

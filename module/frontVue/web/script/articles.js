@@ -2,7 +2,8 @@
 
 Vue.component('articles', {
     props: {
-        activePage: String,
+        category: String,
+        search: String,
         pageSize: {
             type: Number,
             default: 5
@@ -15,24 +16,28 @@ Vue.component('articles', {
         };
     },
     computed: {
-        active () {
-            return this.activePage === 'articles';
-        },
         empty () {
             return !this.items.length;
         }
     },
+    watch: {
+        category () {
+            this.reload();
+        },
+        search () {
+            this.reload();
+        }
+    },
     async created () {
-        this.$root.$on('update-articles', this.onUpdate);
         this.$on('load', this.onLoad);
-        await this.load(0);
+        await this.reload();
     },
     methods: {
         onLoad ({items}) {
             this.items = this.formatItems(items);
         },
-        onUpdate () {
-            this.load(0);
+        async reload () {
+            await this.load(0);
         },
         async load (page) {
             const pageSize = this.pageSize;
@@ -47,12 +52,12 @@ Vue.component('articles', {
             this.$emit('load', {...data, pageSize, page});
         },
         getFilter () {
-            const id = this.$root.$refs.categories?.selected;
-            if (id) {
+            const category = this.$root.activeCategory;
+            if (category) {
                 return [{
                     attr: 'categories',
                     op: 'equal',
-                    value: id
+                    value: category
                 }];
             }
         },

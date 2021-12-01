@@ -1,13 +1,15 @@
 <!-- article/_articleView -->
 <template id="article-view">
-    <div class="mb-3" v-show="active">
+    <div class="mb-3">
         <div class="article">
+
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#" class="to-articles" @click.prevent="onArticles" data-t="">Articles</a>
+                    <a href="#" class="to-articles" @click.prevent="toArticles" data-t="">Articles</a>
                 </li>
                 <li class="breadcrumb-item" data-t="">Article</li>
             </ol>
+
             <h1 class="mt-b">{{title}}</h1>
             <p class="mb-3"><span class="bg-info badge">{{date}}</span></p>
             <h5 class="mb-3">{{subtitle}}</h5>

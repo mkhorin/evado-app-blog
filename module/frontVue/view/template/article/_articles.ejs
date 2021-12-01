@@ -1,6 +1,6 @@
 <!-- article/_articles -->
 <template id="articles">
-    <div v-show="active">
+    <div>
         <div v-show="empty" class="alert-warning alert">
             <span data-t="">No articles found</span>
         </div>
@@ -8,7 +8,8 @@
             <articles-item
                 v-for="item in items"
                 :key="item.id"
-                :item="item"></articles-item>
+                :item="item"
+            ></articles-item>
         </div>
         <pagination></pagination>
     </div>

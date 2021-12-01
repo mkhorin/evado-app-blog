@@ -34,6 +34,18 @@ Vue.mixin({
                 this.loading = false;
             }
         },
+        toArticles () {
+            this.$root.$emit('articles');
+        },
+        toArticle () {
+            this.$root.$emit('article', ...arguments);
+        },
+        toCategory () {
+            this.$root.$emit('category', ...arguments);
+        },
+        searchArticles () {
+            this.$root.$emit('search-articles', ...arguments);
+        },
         translateElement () {
             Jam.i18n.translate($(this.$el));
         }
@@ -43,37 +55,58 @@ Vue.mixin({
 const blog = new Vue({
     el: '#blog',
     props: {
-        'csrf': String,
-        'dataUrl': String,
-        'thumbnailUrl': String,
-        'userName': String,
-        'userEmail': String
+        csrf: String,
+        dataUrl: String,
+        thumbnailUrl: String,
+        userName: String,
+        userEmail: String
     },
     propsData: {
         ...document.querySelector('#blog').dataset
     },
     data () {
         return {
-            activePage: 'articles'
+            activeArticle: '',
+            activeCategory: '',
+            activePage: 'articles',
+            activeSearch: ''
         };
+    },
+    computed: {
+        activePageProps () {
+            switch (this.activePage) {
+                case 'articles': return {
+                    category: this.activeCategory,
+                    search: this.activeSearch
+                };
+                case 'article-view': return {
+                    article: this.activeArticle,
+                    key: this.activeArticle
+                };
+            }
+        }
     },
     created () {
         this.$on('articles', this.onArticles);
         this.$on('article', this.onArticle);
-        this.$on('update-articles', this.onUpdateArticle);
+        this.$on('category', this.onCategory);
+        this.$on('search-articles', this.onSearchArticles);
     },
     methods: {
-        isActivePage (name) {
-            return this.activePage === name;
-        },
         onArticles () {
             this.activePage = 'articles';
         },
-        onArticle () {
-            this.activePage = 'article';
+        onArticle (id) {
+            this.activePage = 'article-view';
+            this.activeArticle = id;
         },
-        onUpdateArticle () {
-            this.$emit('articles');
+        onCategory (id) {
+            this.activeCategory = id;
+            this.toArticles();
+        },
+        onSearchArticles (text) {
+            this.activeSearch = text;
+            this.toArticles();
         }
     }
 });

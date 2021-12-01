@@ -5,7 +5,7 @@
             <template v-if="item.thumbnail">
                 <div class="col-md-9 order-md-2">
                     <div class="mb-2"><span class="badge bg-info me-1">{{item.date}}</span></div>
-                    <h3><a href="#" class="articles-item" @click.prevent="onArticle">{{item.title}}</a></h3>
+                    <h3><a @click.prevent="onArticle" href="#" class="articles-item">{{item.title}}</a></h3>
                     <h5>{{item.subtitle}}</h5>
                     <div class="my-3">
                         <span class="me-1" data-t="">Categories</span>
@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 order-md-1">
-                    <a href="#" class="articles-item" :title="item.thumbnail.text" @click.prevent="onArticle">
+                    <a @click.prevent="onArticle" :title="item.thumbnail.text" href="#" class="articles-item">
                         <img :src="item.thumbnail.url" class="mx-auto img-thumbnail img-fluid" alt="">
                     </a>
                 </div>
@@ -21,7 +21,7 @@
             <template v-else>
                 <div class="col-md-12">
                     <div class="mb-3"><span class="badge bg-info me-1">{{item.date}}</span></div>
-                    <h3><a href="#" class="articles-item" @click.prevent="onArticle">{{item.title}}</a></h3>
+                    <h3><a @click.prevent="onArticle" href="#" class="articles-item">{{item.title}}</a></h3>
                     <h5>{{item.subtitle}}</h5>
                     <div class="my-3">
                         <span class="me-1" data-t="">Categories</span>
