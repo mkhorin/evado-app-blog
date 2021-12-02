@@ -24,8 +24,5 @@ module.exports = {
     }, {
         url: 'front-pages',
         label: 'Pages front'
-    }, {
-        url: 'front-vue',
-        label: 'Vue front'
     }]
 };

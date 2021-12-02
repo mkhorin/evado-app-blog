@@ -1,26 +1,19 @@
-
-<div class="card-warning card mb-5">
-    <div class="card-header" data-t="">Categories</div>
-    <div class="loadable-content card-body"
-         data-blog-handler="CategoryWidget"
-         data-url="<%- _url('/api/base/data/list') %>">
-
-        <div class="loader"><i class="fa fa-spinner fa-spin"></i></div>
-
-        <template data-id="list">
-            <div class="list-group">{{items}}</div>
-        </template>
-
-        <template data-id="item">
-            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-               href="#" data-id="{{_id}}">
-                <span data-t="meta.class.category">{{_title}}</span>
-                <span class="badge bg-dark">{{publicArticleCounter}}</span>
-            </a>
-        </template>
-
-        <template data-id="error">
-            <div class="alert-danger alert">{{text}}</div>
-        </template>
+<template id="categories">
+    <div class="card-warning card mb-5">
+        <div class="card-header" data-t="">Categories</div>
+        <div class="card-body">
+            <div class="alert-warning alert mb-0" v-if="empty">
+                <span data-t="">No categories found</span>
+            </div>
+            <div class="list-group" v-else="empty">
+                <template v-for="item in items">
+                    <a @click.prevent="onItem" :data-id="item._id" href="#"
+                       :class="{'active': category === item._id, 'list-group-item':true, 'list-group-item-action':true, 'd-flex':true, 'justify-content-between':true, 'align-items-center':true}">
+                        <span>{{item._title}}</span>
+                        <span class="badge bg-dark">{{item.publicArticleCounter}}</span>
+                    </a>
+                </template>
+            </div>
+        </div>
     </div>
-</div>
+</template>

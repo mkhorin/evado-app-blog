@@ -2,24 +2,55 @@
 layout(_view.get('_layout/content'));
 block('title', 'Article');
 
-script('front-ajax/vendor/blog.min.js');
-script('front-ajax/script/module.js');
+script('front-ajax/vendor/vue/vue.js');
+script('front-ajax/script/articleCategories.js');
+script('front-ajax/script/articleComments.js');
+script('front-ajax/script/articleItem.js');
+script('front-ajax/script/articleView.js');
+script('front-ajax/script/articles.js');
+script('front-ajax/script/carousel.js');
+script('front-ajax/script/categories.js');
+script('front-ajax/script/commentForm.js');
+script('front-ajax/script/pagination.js');
+script('front-ajax/script/search.js');
+script('front-ajax/script/blog.js');
+
+const userName = _controller.user.getTitle('');
+const userEmail = _controller.user.getEmail();
 %>
 
 <%- include(_view.get('_part/signboard')) %>
+<%- include(_view.get('_part/pagination')) %>
 
-<div class="articles-view blog">
+<%- include('./_articles') %>
+<%- include('./_articleCategories') %>
+<%- include('./_articleComments') %>
+<%- include('./_articleItem') %>
+<%- include('./_articleView') %>
+<%- include('./_carousel') %>
+<%- include('./_categories') %>
+<%- include('./_commentForm') %>
+<%- include('./_search') %>
+
+<div id="blog" class="blog"
+     data-user-name="<%= userName %>"
+     data-user-email="<%= userEmail %>"
+     data-data-url="<%- _url('/api/base/data') %>"
+     data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=photo"
+     data-csrf="<%- _controller.getCsrfToken() %>">
+
     <div class="row">
         <div class="col-md-4 order-md-2">
 
-            <%- include('./_search') %>
-            <%- include('./_categories') %>
+            <search ref="search" :search="activeSearch"></search>
+            <categories ref="categories" :category="activeCategory"></categories>
 
         </div>
         <div class="col-md-8 order-md-1">
 
-            <%- include('./_article') %>
-            <%- include('./_articles') %>
+            <keep-alive>
+                <component :is="activePage" v-bind="activePageProps"></component>
+            </keep-alive>
 
         </div>
     </div>

@@ -1,68 +1,15 @@
-<!-- article/_articles -->
-<div class="mb-3" data-blog-handler="Articles"
-     data-url="<%- _url('/api/base/data/list') %>">
-
-    <div class="list"></div>
-
-    <template data-id="alert">
-        <div class="alert-warning alert">{{text}}</div>
-    </template>
-
-    <template data-id="article">
-        <div class="list-item" data-id="{{_id}}">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mb-3"><span class="badge bg-info me-1">{{date}}</span></div>
-                    <h3><a href="#" class="article-list-item">{{title}}</a></h3>
-                    <h5>{{subtitle}}</h5>
-                    <div class="my-3">
-                        <span class="me-1" data-t="">Categories</span>
-                        {{categories}}
-                    </div>
-                </div>
-            </div>
+<template id="articles">
+    <div>
+        <div v-show="empty" class="alert-warning alert">
+            <span data-t="">No articles found</span>
         </div>
-    </template>
-
-    <template data-id="category">
-        <a href="#" class="tag-item" data-id="{{_id}}">{{_title}}</a>
-    </template>
-
-    <template data-id="photoArticle">
-        <div class="list-item" data-id="{{_id}}">
-            <div class="row">
-                <div class="col-md-9 order-md-2">
-                    <div class="mb-2"><span class="badge bg-info me-1">{{date}}</span></div>
-                    <h3><a href="#" class="article-list-item">{{title}}</a></h3>
-                    <h5>{{subtitle}}</h5>
-                    <div class="my-3">
-                        <span class="me-1" data-t="">Categories</span>
-                        {{categories}}
-                    </div>
-                </div>
-                <div class="col-md-3 order-md-1">
-                    <a href="#" class="article-list-item" title="{{thumbnailText}}">
-                        <img src="<%- _url('/api/base/file/thumbnail') %>?s=sm&c=photo&id={{thumbnail}}"
-                             class="mx-auto img-thumbnail img-fluid" alt="">
-                    </a>
-                </div>
-            </div>
+        <div class="list mb-3">
+            <articles-item
+                v-for="item in items"
+                :key="item.id"
+                :item="item"
+            ></articles-item>
         </div>
-    </template>
-
-    <template data-id="pagination">
-        <nav>
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#" data-action="first"><span>«</span></a></li>
-                <li class="page-item"><a class="page-link" href="#" data-action="prev"><span>‹</span></a></li>
-                {{pages}}
-                <li class="page-item"><a class="page-link" href="#" data-action="next"><span>›</span></a></li>
-                <li class="page-item"><a class="page-link" href="#" data-action="last"><span>»</span></a></li>
-            </ul>
-        </nav>
-    </template>
-
-    <template data-id="page">
-        <li class="page-item {{active}}"><a class="page-link" href="#" data-page="{{page}}">{{text}}</a></li>
-    </template>
-</div>
+        <pagination></pagination>
+    </div>
+</template>

@@ -1,16 +1,17 @@
-<!-- article/_search -->
-<div class="card-info card mb-3">
-    <div class="card-header" data-t="">Search</div>
-    <div class="card-body">
-        <form class="search-form form" method="get" data-blog-handler="SearchWidget">
-            <div class="input-group">
-                <input type="search" name="text" class="form-control" value="">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </form>
+<template id="search">
+    <div class="card-info card mb-3">
+        <div class="card-header" data-t="">Search</div>
+        <div class="card-body">
+            <form @submit.prevent="onSearch" class="search-form form">
+                <div class="input-group">
+                    <input @input="onInput" v-model="text" type="search" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</template>

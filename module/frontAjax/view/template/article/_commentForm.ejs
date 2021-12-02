@@ -1,41 +1,40 @@
-<%
-const name = _controller.user.getTitle('');
-const email = _controller.user.getEmail();
-%>
-<h4 class="my-4" data-t="">Add comment</h4>
+<template id="comment-form">
+    <div>
+        <h4 class="my-4" data-t="">Add comment</h4>
 
-<div class="done-comment alert-success alert hidden">
-    <span data-t="">You message has been sent successfully and will be published after moderation</span>
-</div>
-
-<div class="fail-comment alert-danger alert hidden">
-</div>
-
-<form action="<%- _url('/api/base/data/create') %>" class="comment-form form">
-    <div class="form-group row required">
-        <label for="Comment-name" class="col-md-3 col-form-label" data-t="">Your name</label>
-        <div class="col-md-9">
-            <input id="Comment-name" name="name" type="text" class="form-control" required value="<%= name %>">
-            <div class="error-block"></div>
+        <div v-show="done" class="alert-success alert">
+            <span data-t="">You message has been sent successfully and will be published after moderation</span>
         </div>
-    </div>
-    <div class="form-group row required">
-        <label for="Comment-email" class="col-md-3 col-form-label" data-t="">Email (not shown)</label>
-        <div class="col-md-9">
-            <input id="Comment-email" name="email" type="email" class="form-control" required value="<%= email %>">
-            <div class="error-block"></div>
+        <div v-show="failed" class="alert-danger alert">
+            {{failed}}
         </div>
+        <form v-show="!done" @submit.prevent="onSubmit" class="comment-form form">
+            <div class="form-group row required">
+                <label for="Comment-name" class="col-md-3 col-form-label" data-t="">Your name</label>
+                <div class="col-md-9">
+                    <input v-model.trim="name" id="Comment-name" type="text" class="form-control" required>
+                    <div class="error-block"></div>
+                </div>
+            </div>
+            <div class="form-group row required">
+                <label for="Comment-email" class="col-md-3 col-form-label" data-t="">Email (not shown)</label>
+                <div class="col-md-9">
+                    <input v-model.trim="email" id="Comment-email" type="email" class="form-control" required>
+                    <div class="error-block"></div>
+                </div>
+            </div>
+            <div class="form-group row required">
+                <label for="Comment-content" class="col-md-3 col-form-label" data-t="">Message</label>
+                <div class="col-md-9">
+                    <textarea v-model.trim="content" id="Comment-content" class="form-control" rows="4" required></textarea>
+                    <div class="error-block"></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-9 offset-md-3">
+                    <button type="submit" class="btn btn-primary" data-t="">Send</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="form-group row required">
-        <label for="Comment-content" class="col-md-3 col-form-label" data-t="">Message</label>
-        <div class="col-md-9">
-            <textarea id="Comment-content" name="content" class="form-control" rows="4" required></textarea>
-            <div class="error-block"></div>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-md-9 offset-md-3">
-            <button type="submit" class="btn btn-primary" data-t="">Send</button>
-        </div>
-    </div>
-</form>
+</template>

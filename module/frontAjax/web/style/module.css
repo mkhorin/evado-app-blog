@@ -1,6 +1,6 @@
 body {
-    --navbar-color: var(--light-warning);
-    --super-navbar-color: var(--dark-warning);
+    --navbar-color: var(--light-success);
+    --super-navbar-color: var(--dark-success);
     --sidebar-width: 0;
 }
 
@@ -132,13 +132,4 @@ body {
 .tag-item {
     margin-right: 1rem;
     text-decoration: underline;
-}
-
-.blog [data-blog-handler="Articles"],
-.blog [data-blog-handler="Article"] {
-    display: none;
-}
-.articles-view [data-blog-handler="Articles"],
-.article-view [data-blog-handler="Article"] {
-    display: block;
 }

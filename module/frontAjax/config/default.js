@@ -1,11 +1,11 @@
 /**
- * @copyright Copyright (c) 2020 Maxim Khorin <maksimovichu@gmail.com>
+ * @copyright Copyright (c) 2021 Maxim Khorin <maksimovichu@gmail.com>
  */
 'use strict';
 
 module.exports = {
 
-    title: 'Ajax front',
+    title: 'Vue front',
 
     components: {
         'router': {

@@ -5,14 +5,10 @@
 
 module.exports = {
 
-    build: [{
-        Class: 'Packer',
-        sources: [
-            'src/Blog.js',
-            'src/Element.js',
-            'src/Loadable.js',
-            'src'
-        ],
-        target: 'vendor/blog.min.js'
-    }]
+    deploy: {
+        'vendor/vue': [
+            'vendor/node_modules/vue/dist/vue.js',
+            'vendor/node_modules/vue/dist/vue.min.js'
+        ]
+    }
 };
