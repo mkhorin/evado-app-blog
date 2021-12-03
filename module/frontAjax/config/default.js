@@ -5,7 +5,7 @@
 
 module.exports = {
 
-    title: 'Vue front',
+    title: 'Ajax front',
 
     components: {
         'router': {

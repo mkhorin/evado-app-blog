@@ -5,8 +5,8 @@ Vue.component('article-categories', {
         items: Array
     },
     methods: {
-        onItem (event) {
-            this.toCategory(event.currentTarget.dataset.id);
+        onItem (id) {
+            this.toCategory(id);
         }
     },
     template: '#article-categories'

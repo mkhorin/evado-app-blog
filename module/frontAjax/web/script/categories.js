@@ -22,9 +22,8 @@ Vue.component('categories', {
         getActiveElement () {
             return this.$el.querySelector('.active');
         },
-        onItem ({currentTarget}) {
-            const id = this.getActiveElement() === currentTarget ? null : currentTarget.dataset.id;
-            this.toCategory(id);
+        onItem (id) {
+            this.toCategory(this.category === id ? null : id);
         },
         onLoad ({items}) {
             this.items = items;
