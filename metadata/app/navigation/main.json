@@ -5,7 +5,8 @@
     {
       "name": "articles",
       "label": "Articles",
-      "orderNumber": 10
+      "orderNumber": 10,
+      "type": "container"
     },
     {
       "parent": "articles",
@@ -42,7 +43,8 @@
     {
       "name": "comments",
       "label": "Comments",
-      "orderNumber": 20
+      "orderNumber": 20,
+      "type": "container"
     },
     {
       "parent": "comments",

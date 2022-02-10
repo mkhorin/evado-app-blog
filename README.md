@@ -1,4 +1,4 @@
-# Evado Blog Web App
+# Blog Web App
 
 A multi-user blog with simple and familiar entities 
 build on [Evado Declarative Framework](https://github.com/mkhorin/evado).
