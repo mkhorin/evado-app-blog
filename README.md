@@ -1,6 +1,6 @@
 # Blog Web App
 
-A multi-user blog with simple and familiar entities 
+A multi-user blog with simple and familiar entities
 build on [Evado Declarative Framework](https://github.com/mkhorin/evado).
 
 [![Web app built on Evado declarative framework](doc/evado-app.jpg)](http://nervebit.com)

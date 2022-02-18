@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Install app
- * 
+ *
  * set NODE_ENV=development
  * node console/install [--config name] [--skipAssets true]
  */
