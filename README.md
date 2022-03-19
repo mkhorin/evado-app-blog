@@ -3,7 +3,7 @@
 A multi-user blog with simple and familiar entities
 build on [Evado Declarative Framework](https://github.com/mkhorin/evado).
 
-[![Web app built on Evado declarative framework](doc/evado-app.jpg)](http://nervebit.com)
+[![Web app built on Evado declarative framework](doc/evado-app.jpg)](https://mkhorin.github.io/evado-site/)
 
 ## Docker installation
 
@@ -51,4 +51,4 @@ Password: 123456
 ```
 
 ## Tutorial
-- [Build an App Without Coding](http://nervebit.com/evado/blog)
+- [Build an App Without Coding](https://mkhorin.github.io/evado-site/blog/)
