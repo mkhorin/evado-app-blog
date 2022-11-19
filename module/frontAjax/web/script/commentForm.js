@@ -34,9 +34,7 @@ Vue.component('comment-form', {
         },
         async create () {
             const data = {
-                article: {
-                    links: this.article
-                },
+                article: this.article,
                 name: this.name,
                 email: this.email,
                 content: this.content

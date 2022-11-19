@@ -13,12 +13,12 @@ module.exports = class PhotoController extends Base {
         if (!cls) {
             return this.sendStatus(501, 'Metadata class not found: photo');
         }
-        const id = this.getQueryParam('id');
+        const {id} = this.getQueryParams();
         const model = await cls.createQuery({module: this.module}).byId(id).one();
         if (!model) {
             return this.sendStatus(501, 'Model not found');
         }
-        const size = this.getQueryParam('s');
+        const {s: size} = this.getQueryParams();
         const storage = this.module.getFileStorage();
         const file = await storage.ensureThumbnail(size, model.get('file'));
         if (!file) {
