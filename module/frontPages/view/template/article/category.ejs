@@ -7,20 +7,20 @@ block('title', 'Category');
 
 <div class="row">
 
-    <div class="col-md-4 order-md-2">
-        <%- include('_search') %>
-        <%- _view.placeWidget('categories', {active: category}) %>
-        <%- _view.placeWidget('recentComments') %>
-    </div>
+  <div class="col-md-4 order-md-2">
+    <%- include('_search') %>
+    <%- _view.placeWidget('categories', {active: category}) %>
+    <%- _view.placeWidget('recentComments') %>
+  </div>
 
-    <div class="col-md-8 order-md-1">
+  <div class="col-md-8 order-md-1">
 
-        <%- include('_breadcrumb', {
-            text: category.getTitle()
-        })%>
+    <%- include('_breadcrumb', {
+      text: category.getTitle()
+    })%>
 
-        <%- include(_view.get('_part/list'), {
-            itemTemplate: 'article/_listItem'
-        }) %>
-    </div>
+    <%- include(_view.get('_part/list'), {
+      itemTemplate: 'article/_listItem'
+    }) %>
+  </div>
 </div>

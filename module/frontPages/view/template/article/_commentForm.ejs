@@ -1,7 +1,7 @@
 <%
 const messages = _controller.getFlash('commentDone');
 if (messages.length) { %>
-    <div class="alert alert-success" data-t=""><%- messages[0] %></div>
+  <div class="alert alert-success" data-t=""><%- messages[0] %></div>
 <% } else { %>
 <h4 class="my-4" data-t="">Add comment</h4>
 <%
@@ -9,32 +9,32 @@ if (messages.length) { %>
   if (keys.length) {
 %>
 <div class="alert-danger alert ">
-    <% for (const key of keys) { %>
-    <p><b><%- key %></b>: <%- model.getFirstError(key) %></p>
-    <% } %>
+  <% for (const key of keys) { %>
+  <p><b><%- key %></b>: <%- model.getFirstError(key) %></p>
+  <% } %>
 </div>
 <% } %>
 <form action="<%= _controller.getOriginalUrl() %>#comment-form" method="post"
-      class="comment-form form">
-    <%- include(_view.get('_part/field/string'), {
-        attr: 'name',
-        label: 'Your name',
-        value: _controller.user.getTitle('')
-    }) %>
-    <%- include(_view.get('_part/field/string'), {
-        attr: 'email',
-        type: 'email',
-        label: 'Email (not shown)',
-        value: _controller.user.getEmail()
-    }) %>
-    <%- include(_view.get('_part/field/text'), {
-        attr: 'content',
-        label: 'Message'
-    }) %>
-    <div class="form-group row">
-        <div class="col-md-9 offset-md-3">
-            <button type="submit" class="btn btn-primary" data-t="">Send</button>
-        </div>
+    class="comment-form form">
+  <%- include(_view.get('_part/field/string'), {
+    attr: 'name',
+    label: 'Your name',
+    value: _controller.user.getTitle('')
+  }) %>
+  <%- include(_view.get('_part/field/string'), {
+    attr: 'email',
+    type: 'email',
+    label: 'Email (not shown)',
+    value: _controller.user.getEmail()
+  }) %>
+  <%- include(_view.get('_part/field/text'), {
+    attr: 'content',
+    label: 'Message'
+  }) %>
+  <div class="form-group row">
+    <div class="col-md-9 offset-md-3">
+      <button type="submit" class="btn btn-primary" data-t="">Send</button>
     </div>
+  </div>
 </form>
 <% } %>

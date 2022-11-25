@@ -1,10 +1,10 @@
 <%
-    params.id = typeof id === 'undefined' ? model.getFormAttrId(attr) : id;
-    params.name = typeof name === 'undefined' ?  model.getFormAttrName(attr) : name;
-    params.value = typeof value === 'undefined' ? model.get(attr) : value;
-    params.label = typeof label === 'undefined' ? model.getAttrLabel(attr) : label;
-    params.placeholder = typeof placeholder === 'undefined' ? params.label : placeholder;
-    params.required = model.isAttrRequired(attr) ? ' required' : '';
-    params.inputRequired = params.required ? 'required=""' : '';
-    params.error = _t(model.getFirstError(attr));
+params.id = typeof id === 'undefined' ? model.getFormAttrId(attr) : id;
+params.name = typeof name === 'undefined' ? model.getFormAttrName(attr) : name;
+params.value = typeof value === 'undefined' ? model.get(attr) : value;
+params.label = typeof label === 'undefined' ? model.getAttrLabel(attr) : label;
+params.placeholder = typeof placeholder === 'undefined' ? params.label : placeholder;
+params.required = model.isAttrRequired(attr) ? ' required' : '';
+params.inputRequired = params.required ? 'required=""' : '';
+params.error = _t(model.getFirstError(attr));
 %>

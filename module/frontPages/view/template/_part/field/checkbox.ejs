@@ -5,11 +5,11 @@ const params = {};
 <%- include('_params', {params}) %>
 
 <div class="form-group row">
-    <div class="col-md-10 offset-md-2">
-        <input name="<%- params.name %>" class="form-value" value="<%- params.value %>" type="hidden">
-        <div class="form-check">
-            <input class="form-check-input"<%- params.value ? ' checked' : '' %> type="checkbox">
-            <label class="form-check-label" data-t=""><%- params.label %></label>
-        </div>
+  <div class="col-md-10 offset-md-2">
+    <input name="<%- params.name %>" class="form-value" value="<%- params.value %>" type="hidden">
+    <div class="form-check">
+      <input class="form-check-input"<%- params.value ? ' checked' : '' %> type="checkbox">
+      <label class="form-check-label" data-t=""><%- params.label %></label>
     </div>
+  </div>
 </div>

@@ -193,7 +193,7 @@
     },
     {
       "name": "children",
-      "label": "Сhild categories",
+      "label": "Child categories",
       "type": "backref",
       "commands": [
         "add",

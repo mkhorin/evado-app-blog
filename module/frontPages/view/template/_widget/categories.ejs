@@ -1,21 +1,21 @@
 <!-- _widget/categories -->
 <div class="card-warning card mb-3">
-    <div class="card-header" data-t="">Categories</div>
-    <div class="card-body">
-        <% if (typeof error !== 'undefined') { %>
-        <div class="alert-danger alert"><%- error %></div>
-        <% } else { %>
-        <div class="list-group">
-            <% const url = _url('article/category?id='); %>
-            <% for (const item of categories) { %>
-            <% if (item.counter > 0) { %>
-            <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<%- item.active ? ' active' : '' %>"
-               href="<%- url + item.id %>">
-                <%= item.title %>
-                <span class="rounded-pill bg-dark badge"><%- item.counter %></span>
-            </a>
-            <% }} %>
-        </div>
-        <% } %>
+  <div class="card-header" data-t="">Categories</div>
+  <div class="card-body">
+    <% if (typeof error !== 'undefined') { %>
+    <div class="alert-danger alert"><%- error %></div>
+    <% } else { %>
+    <div class="list-group">
+      <% const url = _url('article/category?id='); %>
+      <% for (const item of categories) { %>
+      <% if (item.counter > 0) { %>
+      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center<%- item.active ? ' active' : '' %>"
+         href="<%- url + item.id %>">
+        <%= item.title %>
+        <span class="rounded-pill bg-dark badge"><%- item.counter %></span>
+      </a>
+      <% }} %>
     </div>
+    <% } %>
+  </div>
 </div>

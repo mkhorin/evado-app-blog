@@ -1,16 +1,16 @@
-
+<!-- _widget/recentComments -->
 <div class="card-success card mb-3">
-    <div class="card-header" data-t="">Recent comments</div>
-    <div class="card-body">
-        <% if (typeof error !== 'undefined') { %>
-        <div class="alert-danger alert"><%- error %></div>
-        <% } else { %>
-        <% for (const comment of comments) { %>
-        <div class="recent-comment">
-            <a href="<%- _url('article/view', {id: comment.get('article')}) %>#comments" class="comment">
-                <%= comment.get('content') %>
-            </a>
-        </div>
-        <% }} %>
+  <div class="card-header" data-t="">Recent comments</div>
+  <div class="card-body">
+    <% if (typeof error !== 'undefined') { %>
+    <div class="alert-danger alert"><%- error %></div>
+    <% } else { %>
+    <% for (const comment of comments) { %>
+    <div class="recent-comment">
+      <a href="<%- _url('article/view', {id: comment.get('article')}) %>#comments" class="comment">
+        <%= comment.get('content') %>
+      </a>
     </div>
+    <% }} %>
+  </div>
 </div>

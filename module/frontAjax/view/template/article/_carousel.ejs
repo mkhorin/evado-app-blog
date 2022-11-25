@@ -1,20 +1,20 @@
 <template id="carousel">
-    <div id="article-photos" class="carousel slide my-3">
-        <div class="carousel-inner">
-            <template v-for="item in items">
-                <div :class="{'active': item.active, 'carousel-item': true}">
-                    <img :src="item.url" :alt="item.description" class="d-block w-100">
-                    <div class="carousel-caption">{{item.description}}</div>
-                </div>
-            </template>
+  <div id="article-photos" class="carousel slide my-3">
+    <div class="carousel-inner">
+      <template v-for="item in items">
+        <div :class="{'active': item.active, 'carousel-item': true}">
+          <img :src="item.url" :alt="item.description" class="d-block w-100">
+          <div class="carousel-caption">{{item.description}}</div>
         </div>
-        <button class="carousel-control-prev" data-bs-target="#article-photos" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" data-bs-target="#article-photos" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+      </template>
     </div>
+    <button class="carousel-control-prev" data-bs-target="#article-photos" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" data-bs-target="#article-photos" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </template>

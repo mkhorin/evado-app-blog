@@ -1,20 +1,20 @@
 <!-- _part/field/static -->
 <%
 const params = {
-    escaping: typeof escaping === 'undefined' ? true : escaping
+  escaping: typeof escaping === 'undefined' ? true : escaping
 };
 %>
 <%- include('_params', {params}) %>
 
 <div class="form-group row">
-    <label class="col-md-2 col-form-label" data-t=""><%- params.label %></label>
-    <div class="col-md-10">
-        <div class="form-control-plaintext">
-            <% if (params.escaping) { %>
-            <%= _format(params.value) %>
-            <% } else { %>
-            <%- _format(params.value) %>
-            <% } %>
-        </div>
+  <label class="col-md-2 col-form-label" data-t=""><%- params.label %></label>
+  <div class="col-md-10">
+    <div class="form-control-plaintext">
+      <% if (params.escaping) { %>
+      <%= _format(params.value) %>
+      <% } else { %>
+      <%- _format(params.value) %>
+      <% } %>
     </div>
+  </div>
 </div>

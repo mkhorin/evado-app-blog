@@ -1,19 +1,19 @@
 <template id="categories">
-    <div class="card-warning card mb-5">
-        <div class="card-header" data-t="">Categories</div>
-        <div class="card-body">
-            <div class="alert-warning alert mb-0" v-if="empty">
-                <span data-t="">No categories found</span>
-            </div>
-            <div class="list-group" v-else="empty">
-                <template v-for="item in items">
-                    <a @click.prevent="onItem(item._id)" href="#"
-                       :class="{'active': category === item._id, 'list-group-item list-group-item-action d-flex justify-content-between align-items-center':true}">
-                        <span>{{item._title}}</span>
-                        <span class="badge bg-dark">{{item.publicArticleCounter}}</span>
-                    </a>
-                </template>
-            </div>
-        </div>
+  <div class="card-warning card mb-5">
+    <div class="card-header" data-t="">Categories</div>
+    <div class="card-body">
+      <div class="alert-warning alert mb-0" v-if="empty">
+        <span data-t="">No categories found</span>
+      </div>
+      <div class="list-group" v-else="empty">
+        <template v-for="item in items">
+          <a @click.prevent="onItem(item._id)" href="#"
+             :class="{'active': category === item._id, 'list-group-item list-group-item-action d-flex justify-content-between align-items-center':true}">
+            <span>{{item._title}}</span>
+            <span class="badge bg-dark">{{item.publicArticleCounter}}</span>
+          </a>
+        </template>
+      </div>
     </div>
+  </div>
 </template>

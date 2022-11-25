@@ -34,25 +34,25 @@ const userEmail = _controller.user.getEmail();
 <%- include('./_search') %>
 
 <div id="blog" class="blog"
-     data-user-name="<%= userName %>"
-     data-user-email="<%= userEmail %>"
-     data-data-url="<%- _url('/api/base/data') %>"
-     data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=photo"
-     data-csrf="<%- _controller.getCsrfToken() %>">
+   data-user-name="<%= userName %>"
+   data-user-email="<%= userEmail %>"
+   data-data-url="<%- _url('/api/base/data') %>"
+   data-thumbnail-url="<%- _url('/api/base/file/thumbnail') %>?c=photo"
+   data-csrf="<%- _controller.getCsrfToken() %>">
 
-    <div class="row">
-        <div class="col-md-4 order-md-2">
+  <div class="row">
+    <div class="col-md-4 order-md-2">
 
-            <search ref="search" :search="activeSearch"></search>
-            <categories ref="categories" :category="activeCategory"></categories>
+      <search ref="search" :search="activeSearch"></search>
+      <categories ref="categories" :category="activeCategory"></categories>
 
-        </div>
-        <div class="col-md-8 order-md-1">
-
-            <keep-alive>
-                <component :is="activePage" v-bind="activePageProps"></component>
-            </keep-alive>
-
-        </div>
     </div>
+    <div class="col-md-8 order-md-1">
+
+      <keep-alive>
+        <component :is="activePage" v-bind="activePageProps"></component>
+      </keep-alive>
+
+    </div>
+  </div>
 </div>

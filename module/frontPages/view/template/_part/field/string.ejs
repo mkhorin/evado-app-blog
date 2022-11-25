@@ -1,16 +1,16 @@
 <!-- _part/field/input -->
 <%
 const params = {
-    type: typeof type === 'undefined' ? 'text' : type
+  type: typeof type === 'undefined' ? 'text' : type
 };
 %>
 <%- include('_params', {params}) %>
 
 <div class="form-group row<%- params.required %> <%- params.error ? 'has-error' : '' %>">
-    <label for="<%- params.id %>" class="col-md-3 col-form-label" data-t=""><%- params.label %></label>
-    <div class="col-md-9">
-        <input id="<%- params.id %>" name="<%- params.name %>" type="<%- params.type %>"
-               value="<%= params.value %>" <%- params.inputRequired %> class="form-control">
-        <div class="error-block"><%- params.error %></div>
-    </div>
+  <label for="<%- params.id %>" class="col-md-3 col-form-label" data-t=""><%- params.label %></label>
+  <div class="col-md-9">
+    <input id="<%- params.id %>" name="<%- params.name %>" type="<%- params.type %>"
+         value="<%= params.value %>" <%- params.inputRequired %> class="form-control">
+    <div class="error-block"><%- params.error %></div>
+  </div>
 </div>

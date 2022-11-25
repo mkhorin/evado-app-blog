@@ -1,26 +1,26 @@
 <%
 if (photos?.length) {
-    const url = _url('photo/thumbnail?s=lg&id=');
+  const url = _url('photo/thumbnail?s=lg&id=');
 %>
 <div id="articlePhotos" class="carousel slide my-3"
-     data-bs-ride="carousel"
-     data-bs-interval="1000"
-     data-bs-wrap="true">
-    <div class="carousel-inner">
-        <% for (let i = 0; i < photos.length; ++i) {
-           const title = photos[i].get('description'); %>
-        <div class="carousel-item <%- i === 0 ? 'active' : '' %>">
-            <img class="d-block w-100" data-src="<%- url + photos[i].getId() %>" title="<%= title %>" alt="">
-        </div>
-        <% } %>
+   data-bs-ride="carousel"
+   data-bs-interval="1000"
+   data-bs-wrap="true">
+  <div class="carousel-inner">
+    <% for (let i = 0; i < photos.length; ++i) {
+       const title = photos[i].get('description'); %>
+    <div class="carousel-item <%- i === 0 ? 'active' : '' %>">
+      <img class="d-block w-100" data-src="<%- url + photos[i].getId() %>" title="<%= title %>" alt="">
     </div>
-    <button class="carousel-control-prev" data-bs-target="#articlePhotos" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" data-bs-target="#articlePhotos" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+    <% } %>
+  </div>
+  <button class="carousel-control-prev" data-bs-target="#articlePhotos" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" data-bs-target="#articlePhotos" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 <% } %>
