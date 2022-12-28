@@ -12,7 +12,7 @@ module.exports = {
         hint: 'Test utility hint',
         enabled: true,
         actions: ['update'],
-        frontClass: 'Test',
+        clientClass: 'Test',
         targetClass: 'article'
     }
 };
