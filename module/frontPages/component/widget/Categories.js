@@ -9,14 +9,17 @@ module.exports = class Categories extends Base {
         const className = 'category';
         const category = meta.getClass(className);
         if (!category) {
-            return this.render({error: `Meta class not found: ${className}`});
+            return this.render({
+                error: `Meta class not found: ${className}`
+            });
         }
         const activeId = this.active?.getId();
         const query = category.createQuery({module: this.module}).withCalc().withTitle();
         const models = await query.all();
         const categories = [];
         for (const model of models) {
-            categories.push(this.getCategoryData(model, activeId));
+            const data = this.getCategoryData(model, activeId);
+            categories.push(data);
         }
         return this.render({categories});
     }

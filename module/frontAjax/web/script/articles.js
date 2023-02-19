@@ -68,7 +68,9 @@ Vue.component('articles', {
                 subtitle: item.subtitle,
                 date: Jam.FormatHelper.asDate(item.date),
                 categories: item.categories,
-                thumbnail: item.mainPhoto ? this.formatThumbnail(item.mainPhoto) : null
+                thumbnail: item.mainPhoto 
+                    ? this.formatThumbnail(item.mainPhoto) 
+                    : null
             }));
         },
         formatThumbnail (data) {
