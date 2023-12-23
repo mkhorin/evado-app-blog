@@ -5,7 +5,7 @@ const Base = require('areto/view/Widget');
 module.exports = class RecentComments extends Base {
 
     async execute () {
-        const module = this.module;
+        const {module} = this;
         const meta = module.getBaseMeta();
         const className = 'comment';
         const viewName = 'publicList';

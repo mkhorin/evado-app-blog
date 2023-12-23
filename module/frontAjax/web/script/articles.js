@@ -40,7 +40,7 @@ Vue.component('articles', {
             await this.load(0);
         },
         async load (page) {
-            const pageSize = this.pageSize;
+            const {pageSize} = this;
             const data = await this.fetchJson('list', {
                 class: 'article',
                 view: 'publicList',
